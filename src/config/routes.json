@@ -1,0 +1,47 @@
+{
+  "mobileRoutes": [
+    {
+      "key": "inicio",
+      "path": "/",
+      "title": "Inicio"
+    },
+    {
+      "key": "blog",
+      "path": "/blog",
+      "title": "Blog"
+    },
+    {
+      "key": "project",
+      "path": "/project",
+      "title": "Proyectos"
+    },
+    
+    {
+      "key": "login",
+      "path": "/auth/sign-in/",
+      "title": "Iniciar sesión"
+    },
+    {
+      "key": "register",
+      "path": "/auth/sign-up/",
+      "title": "Registrarse"
+    },
+    {
+      "key": "profile",
+      "path": "/me/",
+      "title": "Mi perfil"
+    }
+  ],
+  "routes": [
+    {
+      "key": "blog",
+      "path": "/blog",
+      "title": "Blog"
+    },
+    {
+      "key": "project",
+      "path": "/project",
+      "title": "Proyectos"
+    }
+  ]
+}
