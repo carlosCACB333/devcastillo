@@ -16,6 +16,7 @@ import {
   FaBitcoin,
   FaChartLine,
   FaCode,
+  FaCoffee,
   FaCss3,
   FaGithub,
   FaGlobeAmericas,
@@ -298,6 +299,8 @@ export const Icon = ({ name, ...props }: Props) => {
     case "go":
     case "golang":
       return <GopherIcon {...props} />;
+    case "coffe":
+      return <FaCoffee {...props} />;
     default:
       return <FaCode {...props} />;
   }
@@ -365,7 +368,8 @@ export type IconName =
   | "whatsapp"
   | "email"
   | "go"
-  | "golang";
+  | "golang"
+  | "coffe";
 
 export const GopherIcon = (props: IconProps) => {
   return (

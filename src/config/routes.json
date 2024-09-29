@@ -15,21 +15,10 @@
       "path": "/project",
       "title": "Proyectos"
     },
-    
     {
-      "key": "login",
-      "path": "/auth/sign-in/",
-      "title": "Iniciar sesión"
-    },
-    {
-      "key": "register",
-      "path": "/auth/sign-up/",
-      "title": "Registrarse"
-    },
-    {
-      "key": "profile",
-      "path": "/me/",
-      "title": "Mi perfil"
+      "key": "donate",
+      "path": "/donate",
+      "title": "Donar"
     }
   ],
   "routes": [

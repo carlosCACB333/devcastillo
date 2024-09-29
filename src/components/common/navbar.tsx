@@ -137,6 +137,15 @@ export const Navbar: FC<NavbarProps> = ({
           </NavbarItem>
         )}
         <NavbarItem className="flex h-full items-center">
+          <NextLink
+            aria-label="Invítame un café"
+            className="p-1"
+            href="/donate"
+          >
+            <Icon name="coffe" className="text-foreground" />
+          </NextLink>
+        </NavbarItem>
+        <NavbarItem className="flex h-full items-center">
           <ThemeSwitch />
         </NavbarItem>
         <NavbarItem className="flex h-full items-center sm:hidden">

@@ -14,6 +14,10 @@ export const env = {
   revalidate: 3600,
   webLlmModel: process.env.NEXT_PUBLIC_WEB_LLM_MODEL || "",
   apiKey: process.env.API_KEY || "",
+  paypal: {
+    clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "",
+    secret_key: process.env.PAYPAL_SECRET_KEY || "",
+  },
 };
 
 export const ALLOWED_LOCALES = ["es", "en"];
