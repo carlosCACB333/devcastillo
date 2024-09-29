@@ -41,15 +41,16 @@ export const ExperienceSection = () => {
               </span>
 
               <h3 className={title({ size: "xs" })}>
-                <span className="text-pink-500">Desarrollador Backend </span>{" "}
-                enNetdreams
+                <span className="text-pink-500">Desarrollador Backend </span>
+                &nbsp;en Netdreams
               </h3>
 
-              <time className="block mb-2 text-base font-normal leading-none opacity-80">
+              <time className="block mb-2 text-base italic leading-none opacity-80">
                 Enero 2021 - Actualidad
               </time>
               <p className={subtitle({ fullWidth: true })}>
-                Implementé y mantuve los microservicios de la billetera digital{" "}
+                Implementé y mantuve los microservicios de la billetera
+                digital&nbsp;
                 <span className="text-pink-500">BIM</span> usando tecnologías
                 como:
               </p>

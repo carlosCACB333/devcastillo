@@ -72,7 +72,9 @@ export const Navbar: FC<NavbarProps> = ({
     </Button>
   );
 
-  const navLinkClasses = clsx("data-[active=true]:text-primary");
+  const navLinkClasses = clsx(
+    "data-[active=true]:text-primary hover:opacity-80 transition-opacity"
+  );
 
   return (
     <NextUINavbar
@@ -85,30 +87,28 @@ export const Navbar: FC<NavbarProps> = ({
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand as="li" className="gap-3 max-w-fit">
-          <NextLink
-            aria-label="Home"
-            className="flex justify-start items-center gap-2 tap-highlight-transparent transition-opacity active:opacity-50"
-            href="/"
-          >
+        <NavbarBrand as="li" className="max-w-fit ">
+          <NextLink aria-label="Home" className="flex items-center" href="/">
             <Icon name="logo" className="fill-primary" height={40} width={40} />
+            <span className="font-extrabold text-lg hidden sm:inline">
+              devcastillo
+            </span>
           </NextLink>
         </NavbarBrand>
-        <ol className="hidden sm:flex gap-4 justify-start items-center">
-          {routes.map((route) => (
-            <NavbarItem key={route.key}>
-              <NextLink
-                className={navLinkClasses}
-                color="foreground"
-                data-active={includes(pathname, route.path)}
-                href={route.path}
-                aria-label={route.title}
-              >
-                {route.title}
-              </NextLink>
-            </NavbarItem>
-          ))}
-        </ol>
+
+        {routes.map((route) => (
+          <NavbarItem key={route.key} className="hidden sm:inline">
+            <NextLink
+              className={navLinkClasses}
+              color="foreground"
+              data-active={includes(pathname, route.path)}
+              href={route.path}
+              aria-label={route.title}
+            >
+              {route.title}
+            </NextLink>
+          </NavbarItem>
+        ))}
       </NavbarContent>
 
       <NavbarContent className="flex w-full gap-2" justify="end">
@@ -177,7 +177,7 @@ export const Navbar: FC<NavbarProps> = ({
               <NextLink
                 href={item.path}
                 data-active={includes(pathname, item.path)}
-                className={clsx("data-[active=true]:text-primary")}
+                className={navLinkClasses}
                 aria-label={item.title}
               >
                 {item.title}
