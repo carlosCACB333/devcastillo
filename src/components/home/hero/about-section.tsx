@@ -26,11 +26,16 @@ export const AboutSection = () => {
       className={sectionWrapper({ class: "mt-24 lg:mt-56" })}
       id="home-about-me"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="row-span-2  md:row-start-1 bg-gradient-to-br from-blue-200 to-blue-900 rounded-lg min-h-[400px]">
-          <IMG src={photo.url} alt={author.firstName} sizes={sizes.sm} />
+      <div className="grid md:grid-cols-9 gap-8">
+        <div className="md:col-span-4 min-h-[46rem]">
+          <IMG
+            src={photo.url}
+            alt={author.firstName}
+            sizes={sizes.sm}
+            className="rounded-3xl shadow-xl"
+          />
         </div>
-        <div className="row-start-1 md:row-start-2 ">
+        <div className="md:col-span-5 content-center row-start-1 md:row-start-auto">
           <div className="text-center md:text-start">
             <h1 className={title({ size: "lg" })}>Conoce &nbsp;</h1>
             <div className="flex flex-col items-center md:flex-row">
@@ -46,7 +51,7 @@ export const AboutSection = () => {
               />
             </div>
           </div>
-          <div className={subtitle({ fullWidth: true })}>
+          <div className={subtitle({ fullWidth: true, class: "my-6" })}>
             <MDXContent>{author.bio?.toString()}</MDXContent>
           </div>
           <Table
@@ -56,8 +61,8 @@ export const AboutSection = () => {
             aria-label="Tabla de información personal"
           >
             <TableHeader>
-              <TableColumn> </TableColumn>
-              <TableColumn> </TableColumn>
+              <TableColumn> Key </TableColumn>
+              <TableColumn> Value </TableColumn>
             </TableHeader>
 
             <TableBody>
