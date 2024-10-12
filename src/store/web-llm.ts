@@ -14,7 +14,7 @@ interface LlmStore {
 export const useLlm = create<LlmStore>((set, get) => {
   const initializeEngine = async () => {
     if (get()?.engine) return;
-    console.log("Initializing engine");
+    console.info("Initializing engine");
     set({
       status: {
         text: "Cargando...",

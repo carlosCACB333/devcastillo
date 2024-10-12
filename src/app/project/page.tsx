@@ -1,22 +1,26 @@
-"use client";
 import { searchProjects } from "@/action";
 import { sizes } from "@/assets";
 import { Pagination } from "@/components/common/Pagination";
-import { Searcher } from "@/components/common/Searcher";
+import { Search } from "@/components/common/Searcher";
 import { ProjectCard } from "@/components/project/ProjectCard";
-import { Project } from "@/generated/graphql";
-import { usePagination } from "@/hooks";
+import { Project, Stage } from "@/generated/graphql";
+import { PageProps } from "@/interfaces";
+const PAGE_SIZE = 4;
 
-const ProjectPage = () => {
-  const { data, onSearch, onChangePage } = usePagination(searchProjects, "", 4);
+const ProjectPage = async ({ searchParams }: PageProps) => {
+  const page = parseInt(searchParams.page || "1");
+  const query = (searchParams.query || "").trim();
+  const skip = (page - 1) * PAGE_SIZE;
+  const data = await searchProjects(query, PAGE_SIZE, skip, Stage.Published);
+  const totalPages = Math.ceil(data.aggregate.count / PAGE_SIZE);
 
   return (
     <div className="container mx-auto mt-20 p-6">
       <div className="max-w-lg mx-auto ">
-        <Searcher
+        <Search
+          defaultValue={query}
           size="lg"
           placeholder="Buscar proyectos..."
-          setSearch={onSearch}
         />
       </div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mt-8">
@@ -26,13 +30,15 @@ const ProjectPage = () => {
           </div>
         ))}
       </div>
+      <br />
 
-      {data?.pageInfo && (
-        <Pagination {...data.pageInfo} onChangePage={onChangePage} />
-      )}
+      <Pagination
+        totalPages={totalPages}
+        currentPage={page}
+        className="flex justify-end"
+      />
     </div>
   );
 };
 
 export default ProjectPage;
-

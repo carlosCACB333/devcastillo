@@ -14,6 +14,23 @@ const Layout = async ({ children }: LayoutProps) => {
     stage: Stage.Published,
   });
 
+  const allCategories = [
+    {
+      id: "all",
+      name: "Todos",
+      slug: "",
+    },
+    ...categories,
+  ];
+
+  const createUrl = (slug?: string) => {
+    const url = "/blog";
+    if (slug) {
+      return `${url}?category=${slug}`;
+    }
+    return url;
+  };
+
   return (
     <main className="flex flex-col lg:flex-row gap-8 lg:gap-16 container m-auto">
       <div className="flex-1">
@@ -24,7 +41,7 @@ const Layout = async ({ children }: LayoutProps) => {
       <aside className="w-full md:w-96 sticky top-16 scroll pr-2 lg:max-h-[calc(100vh-6rem)] p-6">
         <h3 className={subtitle({ class: "text-foreground" })}>Categorías</h3>
         <ol>
-          {categories.map((category) => (
+          {allCategories.map((category) => (
             <li
               key={category.id}
               className="font-semibold ps-2 relative ml-[0.4rem] before:content-[''] before:absolute before:left-[-0.4rem] before:top-[.7rem] before:w-[0.4rem] before:h-[0.4rem] before:bg-primary before:rounded-full "
@@ -32,9 +49,10 @@ const Layout = async ({ children }: LayoutProps) => {
               <Link
                 color="foreground"
                 size="sm"
-                href={`?category=${category.slug}`}
+                href={createUrl(category.slug)}
                 as={NextLink}
                 aria-label={category.name}
+                scroll={false}
               >
                 {category.name}
               </Link>

@@ -75,13 +75,13 @@ export async function POST(req: NextRequest) {
     });
   });
 
-  //  Rebuild sitemap.xml
-  execSync("yarn run postbuild");
-
   // Revalidate all pages
   revalidatePath("/");
 
-  console.log("Creating search file on: ", process.cwd());
+  //  Rebuild sitemap.xml
+  execSync("yarn run postbuild");
+
+  console.info("Creating search file on: ", process.cwd());
   fs.writeFileSync("public/search-meta.json", JSON.stringify(searchResult));
 
   return NextResponse.json({

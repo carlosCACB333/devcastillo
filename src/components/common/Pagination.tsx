@@ -1,9 +1,12 @@
+"use client";
+
 import { PageInfo } from "@/generated/graphql";
-import React from "react";
+import { Pagination as NextUIPagination } from "@nextui-org/pagination";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 interface Props extends PageInfo {
   onChangePage: (nextPage: boolean) => void;
 }
-export const Pagination = ({
+export const BasicPagination = ({
   hasNextPage,
   hasPreviousPage,
   onChangePage,
@@ -49,5 +52,39 @@ export const Pagination = ({
         </svg>
       </button>
     </div>
+  );
+};
+
+interface PaginationProps {
+  totalPages: number;
+  currentPage: number;
+  className?: string;
+}
+
+export const Pagination = ({
+  totalPages,
+  currentPage,
+  className,
+}: PaginationProps) => {
+  const searchParams = useSearchParams();
+  const path = usePathname();
+  const router = useRouter();
+
+  const handleChangePage = (page: number) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("page", page.toString());
+    const url = `${path}?${params.toString()}`;
+    router.replace(url, { scroll: false });
+  };
+
+  return (
+    <NextUIPagination
+      showControls
+      total={totalPages}
+      showShadow
+      page={currentPage}
+      onChange={handleChangePage}
+      className={className}
+    />
   );
 };

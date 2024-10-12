@@ -2,9 +2,8 @@
 
 import { ProjectConnection, Stage } from "@/generated/graphql";
 import { GRAPH_SDK } from "@/utils/sdk";
-import { SearchFunction } from "./types";
 
-export const searchProjects: SearchFunction<ProjectConnection> = async (
+export const searchProjects = async (
   keyword: string,
   first: number,
   skip: number,

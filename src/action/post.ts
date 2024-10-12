@@ -2,14 +2,24 @@
 
 import { PostConnection, Stage } from "@/generated/graphql";
 import { GRAPH_SDK } from "@/utils/sdk";
-import { SearchFunction } from "./types";
 
-export const searchPosts: SearchFunction<PostConnection> = async (
+export const searchPosts = async (
   keyword: string,
   first: number,
   skip: number,
-  stage: Stage
+  stage: Stage,
+  slug?: string
 ) => {
+  if (slug) {
+    const { postsConnection } = await GRAPH_SDK.searchPostsByCategory({
+      search: keyword,
+      first,
+      skip,
+      stage,
+      slug,
+    });
+    return postsConnection as PostConnection;
+  }
   const { postsConnection } = await GRAPH_SDK.searchPosts({
     search: keyword,
     first,

@@ -98,5 +98,38 @@ query searchPosts($search: String!, $first: Int!, $skip: Int!, $stage: Stage!) {
       hasPreviousPage
       pageSize
     }
+    aggregate {
+      count
+    }
+  }
+}
+
+query searchPostsByCategory(
+  $search: String!
+  $slug: String!
+  $first: Int!
+  $skip: Int!
+  $stage: Stage!
+) {
+  postsConnection(
+    orderBy: priority_DESC
+    first: $first
+    skip: $skip
+    stage: $stage
+    where: { _search: $search, OR: { categories_every: { slug: $slug } } }
+  ) {
+    edges {
+      node {
+        ...PostsField
+      }
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      pageSize
+    }
+    aggregate {
+      count
+    }
   }
 }

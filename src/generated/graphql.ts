@@ -8730,7 +8730,18 @@ export type SearchPostsQueryVariables = Exact<{
 }>;
 
 
-export type SearchPostsQuery = { __typename?: 'Query', postsConnection: { __typename?: 'PostConnection', edges: Array<{ __typename?: 'PostEdge', node: { __typename?: 'Post', id: string, title: string, priority: number, slug: string, summary: string, updatedAt: any, content: string, tags: Array<{ __typename?: 'Skill', id: string, icon?: string | null, name: string }>, categories: Array<{ __typename?: 'Category', id: string, name: string, icon?: string | null }>, banner: { __typename?: 'Asset', url: string, height?: number | null, width?: number | null }, createdBy?: { __typename?: 'User', id: string, name: string, picture?: string | null } | null } }>, pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, pageSize?: number | null } } };
+export type SearchPostsQuery = { __typename?: 'Query', postsConnection: { __typename?: 'PostConnection', edges: Array<{ __typename?: 'PostEdge', node: { __typename?: 'Post', id: string, title: string, priority: number, slug: string, summary: string, updatedAt: any, content: string, tags: Array<{ __typename?: 'Skill', id: string, icon?: string | null, name: string }>, categories: Array<{ __typename?: 'Category', id: string, name: string, icon?: string | null }>, banner: { __typename?: 'Asset', url: string, height?: number | null, width?: number | null }, createdBy?: { __typename?: 'User', id: string, name: string, picture?: string | null } | null } }>, pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, pageSize?: number | null }, aggregate: { __typename?: 'Aggregate', count: number } } };
+
+export type SearchPostsByCategoryQueryVariables = Exact<{
+  search: Scalars['String']['input'];
+  slug: Scalars['String']['input'];
+  first: Scalars['Int']['input'];
+  skip: Scalars['Int']['input'];
+  stage: Stage;
+}>;
+
+
+export type SearchPostsByCategoryQuery = { __typename?: 'Query', postsConnection: { __typename?: 'PostConnection', edges: Array<{ __typename?: 'PostEdge', node: { __typename?: 'Post', id: string, title: string, priority: number, slug: string, summary: string, updatedAt: any, content: string, tags: Array<{ __typename?: 'Skill', id: string, icon?: string | null, name: string }>, categories: Array<{ __typename?: 'Category', id: string, name: string, icon?: string | null }>, banner: { __typename?: 'Asset', url: string, height?: number | null, width?: number | null }, createdBy?: { __typename?: 'User', id: string, name: string, picture?: string | null } | null } }>, pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, pageSize?: number | null }, aggregate: { __typename?: 'Aggregate', count: number } } };
 
 export type GetCategoriesSlugQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -8754,7 +8765,7 @@ export type SearchCertificationsQueryVariables = Exact<{
 }>;
 
 
-export type SearchCertificationsQuery = { __typename?: 'Query', certificationsConnection: { __typename?: 'CertificationConnection', edges: Array<{ __typename?: 'CertificationEdge', cursor: string, node: { __typename?: 'Certification', id: string, name: string, picture: { __typename?: 'Asset', url: string } } }>, pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, startCursor?: string | null, endCursor?: string | null, pageSize?: number | null } } };
+export type SearchCertificationsQuery = { __typename?: 'Query', certificationsConnection: { __typename?: 'CertificationConnection', edges: Array<{ __typename?: 'CertificationEdge', cursor: string, node: { __typename?: 'Certification', id: string, name: string, picture: { __typename?: 'Asset', url: string } } }>, pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, startCursor?: string | null, endCursor?: string | null, pageSize?: number | null }, aggregate: { __typename?: 'Aggregate', count: number } } };
 
 export type ProjectFieldsFragment = { __typename?: 'Project', id: string, slug: string, title: string, abstract: string, gitHub?: string | null, webSide?: string | null, pictures: Array<{ __typename?: 'Asset', id: string, url: string, width?: number | null, height?: number | null }>, skills: Array<{ __typename?: 'Skill', id: string, name: string, icon?: string | null }> };
 
@@ -8787,7 +8798,7 @@ export type SearchProjectsQueryVariables = Exact<{
 }>;
 
 
-export type SearchProjectsQuery = { __typename?: 'Query', projectsConnection: { __typename?: 'ProjectConnection', edges: Array<{ __typename?: 'ProjectEdge', node: { __typename?: 'Project', id: string, slug: string, title: string, abstract: string, gitHub?: string | null, webSide?: string | null, pictures: Array<{ __typename?: 'Asset', id: string, url: string, width?: number | null, height?: number | null }>, skills: Array<{ __typename?: 'Skill', id: string, name: string, icon?: string | null }> } }>, pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, pageSize?: number | null } } };
+export type SearchProjectsQuery = { __typename?: 'Query', projectsConnection: { __typename?: 'ProjectConnection', edges: Array<{ __typename?: 'ProjectEdge', node: { __typename?: 'Project', id: string, slug: string, title: string, abstract: string, gitHub?: string | null, webSide?: string | null, pictures: Array<{ __typename?: 'Asset', id: string, url: string, width?: number | null, height?: number | null }>, skills: Array<{ __typename?: 'Skill', id: string, name: string, icon?: string | null }> } }>, pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, pageSize?: number | null }, aggregate: { __typename?: 'Aggregate', count: number } } };
 
 export type GetSearchMetaQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -8952,6 +8963,34 @@ export const SearchPostsDocument = gql`
       hasPreviousPage
       pageSize
     }
+    aggregate {
+      count
+    }
+  }
+}
+    ${PostsFieldFragmentDoc}`;
+export const SearchPostsByCategoryDocument = gql`
+    query searchPostsByCategory($search: String!, $slug: String!, $first: Int!, $skip: Int!, $stage: Stage!) {
+  postsConnection(
+    orderBy: priority_DESC
+    first: $first
+    skip: $skip
+    stage: $stage
+    where: {_search: $search, OR: {categories_every: {slug: $slug}}}
+  ) {
+    edges {
+      node {
+        ...PostsField
+      }
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      pageSize
+    }
+    aggregate {
+      count
+    }
   }
 }
     ${PostsFieldFragmentDoc}`;
@@ -9003,6 +9042,9 @@ export const SearchCertificationsDocument = gql`
       startCursor
       endCursor
       pageSize
+    }
+    aggregate {
+      count
     }
   }
 }
@@ -9085,6 +9127,9 @@ export const SearchProjectsDocument = gql`
       hasPreviousPage
       pageSize
     }
+    aggregate {
+      count
+    }
   }
 }
     ${ProjectFieldsFragmentDoc}`;
@@ -9129,6 +9174,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     searchPosts(variables: SearchPostsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<SearchPostsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<SearchPostsQuery>(SearchPostsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'searchPosts', 'query', variables);
+    },
+    searchPostsByCategory(variables: SearchPostsByCategoryQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<SearchPostsByCategoryQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<SearchPostsByCategoryQuery>(SearchPostsByCategoryDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'searchPostsByCategory', 'query', variables);
     },
     getCategoriesSlug(variables?: GetCategoriesSlugQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCategoriesSlugQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetCategoriesSlugQuery>(GetCategoriesSlugDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCategoriesSlug', 'query', variables);

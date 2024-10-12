@@ -31,7 +31,7 @@ export const sendMail = async (data: Contact) => {
         "Gracias por contactarnos, pronto nos pondremos en contacto contigo",
     };
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return {
       ok: false,
       message:

@@ -20,7 +20,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const author = await getAuthor(Locale.Es);
-  // const defaultTheme = await getCookie("theme", "dark");
 
   return (
     <html suppressHydrationWarning dir="ltr" lang="es">
@@ -69,7 +68,7 @@ export async function generateMetadata(): Promise<Metadata> {
       shortcut: "/favicon-32x32.png",
       apple: "/apple-touch-icon.png",
     },
-    manifest: "/manifest.json",
+
     openGraph: {
       type: "website",
       locale: "es_PE",

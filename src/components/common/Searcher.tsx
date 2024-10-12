@@ -1,29 +1,50 @@
 "use client";
 
-import { useDebounce } from "@/hooks";
 import { Input, InputProps } from "@nextui-org/input";
-import { memo, useEffect, useState } from "react";
-import { Icon } from "./icon";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useRef } from "react";
 
-interface Props extends InputProps {
-  setSearch: (v: string) => void;
-}
-const SearcherComponent = ({ setSearch, ...rest }: Props) => {
-  const [value, setValue] = useState("");
-  const search = useDebounce(value);
-  useEffect(() => {
-    setSearch(search);
-  }, [search, setSearch]);
+const TO_RESET_SEARCH_PARAMS = ["page"];
+
+export const Search = ({ defaultValue, ...props }: InputProps) => {
+  const searchParams = useSearchParams();
+  const path = usePathname();
+  const router = useRouter();
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleSearch = (query: string) => {
+    const params = new URLSearchParams(searchParams);
+    if (query) {
+      params.set("query", query);
+    } else {
+      params.delete("query");
+    }
+
+    TO_RESET_SEARCH_PARAMS.forEach((param) => {
+      params.delete(param);
+    });
+
+    const url = `${path}?${params.toString()}`;
+
+    router.replace(url, { scroll: false });
+  };
 
   return (
     <Input
-      startContent={<Icon name="search" />}
-      onValueChange={(v) => setValue(v || "")}
-      value={value}
       aria-label="Buscar"
-      {...rest}
+      defaultValue={defaultValue}
+      onValueChange={(value) => {
+        if (timerRef.current) {
+          clearTimeout(timerRef.current);
+        }
+        let newQuery = value.trim();
+        if (newQuery === defaultValue) return;
+
+        timerRef.current = setTimeout(() => {
+          handleSearch(newQuery);
+        }, 800);
+      }}
+      {...props}
     />
   );
 };
-
-export const Searcher = memo(SearcherComponent);

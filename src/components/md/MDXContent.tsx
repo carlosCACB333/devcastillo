@@ -1,9 +1,7 @@
 "use client";
-import { clsx } from "@nextui-org/shared-utils";
-
-// import { Language } from "prism-react-renderer";
 import { Code } from "@nextui-org/code";
 import { Link } from "@nextui-org/link";
+import { clsx } from "@nextui-org/shared-utils";
 import { Snippet } from "@nextui-org/snippet";
 import { Language } from "prism-react-renderer";
 import { FC, HTMLAttributes } from "react";
@@ -12,7 +10,6 @@ import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
-import remarkUnwrapImages from "remark-unwrap-images";
 import { Blockquote } from "../common/blockquote";
 import Codeblock from "../common/codeblock";
 import { VirtualAnchor, virtualAnchorEncode } from "../common/virtual-anchor";
@@ -98,7 +95,7 @@ const LinkedHeading: React.FC<LinkedHeadingProps> = ({
 export const MDXContent: FC<{ children?: string }> = ({ children }) => {
   return (
     <Markdown
-      remarkPlugins={[remarkMath, remarkUnwrapImages, remarkGfm]}
+      remarkPlugins={[remarkMath, remarkGfm]}
       rehypePlugins={[rehypeSlug, rehypeKatex]}
       components={{
         h1: (props) => <LinkedHeading as="h1" {...props} />,

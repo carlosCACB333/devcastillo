@@ -60,5 +60,8 @@ query searchProjects(
       hasPreviousPage
       pageSize
     }
+    aggregate {
+      count
+    }
   }
 }
