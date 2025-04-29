@@ -45,9 +45,9 @@ export default async function RootLayout({
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  //
   const author = await getAuthor(Locale.Es);
   const authorName = author?.firstName + " " + author?.lastName;
+
   return {
     metadataBase: new URL(siteConfig.siteUrl),
     title: {

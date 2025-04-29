@@ -11,7 +11,6 @@ export const env = {
     email: process.env.AUTHOR_EMAIL || "",
     password: process.env.AUTHOR_PASSWORD || "",
   },
-  revalidate: 3600,
   webLlmModel: process.env.NEXT_PUBLIC_WEB_LLM_MODEL || "",
   apiKey: process.env.API_KEY || "",
   paypal: {

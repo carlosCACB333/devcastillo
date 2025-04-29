@@ -1,6 +1,6 @@
 "use client";
 import { useAuthor } from "@/hooks";
-import { Link } from "@nextui-org/link";
+import { Link } from "@heroui/link";
 import NextLink from "next/link";
 
 export const Footer = () => {

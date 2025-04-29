@@ -1,11 +1,10 @@
 import python from "@/assets/img/python.png";
-import { GopherIcon } from "@/components/common/icon";
-import { Card, CardBody } from "@nextui-org/card";
-import { colors } from "@nextui-org/theme";
+import { GopherIcon, Icon } from "@/components/common/icon";
+import { Card, CardBody } from "@heroui/card";
+import { colors } from "@heroui/theme";
 import Image from "next/image";
 import { BiLogoKubernetes } from "react-icons/bi";
 import { FaAws, FaDocker, FaGithub, FaReact } from "react-icons/fa";
-import { SiIbmwatson } from "react-icons/si";
 import { IconCard } from "./Icon-card";
 import { UserGitHubCard } from "./user-github-card";
 
@@ -62,7 +61,7 @@ export const FloatingComponents: React.FC<{}> = () => {
         </IconCard>
 
         <div className="absolute right-[10px] top-[30px] animate-[levitate_16s_ease_infinite] z-10 max-w-fit border-none">
-          <SiIbmwatson size={50} />
+          <Icon name="ia" height={50} width={50} className="" />
         </div>
 
         <Card

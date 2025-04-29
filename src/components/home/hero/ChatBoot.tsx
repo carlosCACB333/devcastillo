@@ -1,8 +1,8 @@
 "use client";
 import { useChat } from "@/hooks/use-chat";
 import { useLlm } from "@/store/web-llm";
-import { Button } from "@nextui-org/button";
-import { Input } from "@nextui-org/input";
+import { Button } from "@heroui/button";
+import { Input } from "@heroui/input";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";

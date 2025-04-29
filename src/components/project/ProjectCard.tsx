@@ -1,8 +1,8 @@
 import { sizes as c } from "@/assets";
 import { Project } from "@/generated/graphql";
-import { Button } from "@nextui-org/button";
-import { Card, CardFooter, CardHeader } from "@nextui-org/card";
-import { Link } from "@nextui-org/link";
+import { Button } from "@heroui/button";
+import { Card, CardFooter, CardHeader } from "@heroui/card";
+import { Link } from "@heroui/link";
 import { Icon } from "../common/icon";
 import { IMG } from "../common/IMG";
 

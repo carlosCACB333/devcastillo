@@ -1,7 +1,7 @@
 "use client";
 import { AuthorProvider } from "@/context";
 import { Author } from "@/generated/graphql";
-import { NextUIProvider } from "@nextui-org/system";
+import { HeroUIProvider } from "@heroui/system";
 import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
@@ -12,16 +12,24 @@ export interface ProvidersProps {
   author: Author;
 }
 
+declare module "@react-types/shared" {
+  interface RouterConfig {
+    routerOptions: NonNullable<
+      Parameters<ReturnType<typeof useRouter>["push"]>[1]
+    >;
+  }
+}
+
 export function Providers({ children, author }: ProvidersProps) {
   const router = useRouter();
   return (
-    <NextUIProvider navigate={router.push}>
+    <HeroUIProvider navigate={router.push}>
       <AuthorProvider author={author as any}>
         <NextThemesProvider attribute="class" defaultTheme="dark">
           <ProvidersChild>{children}</ProvidersChild>
         </NextThemesProvider>
       </AuthorProvider>
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 

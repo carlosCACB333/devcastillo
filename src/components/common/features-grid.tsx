@@ -1,9 +1,9 @@
 "use client";
 
-import { Card, CardBody, CardHeader } from "@nextui-org/card";
-import { LinkProps } from "@nextui-org/link";
-import { LinkIcon } from "@nextui-org/shared-icons";
-import { SlotsToClasses } from "@nextui-org/theme";
+import { Card, CardBody, CardHeader } from "@heroui/card";
+import { LinkProps } from "@heroui/link";
+import { LinkIcon } from "@heroui/shared-icons";
+import { SlotsToClasses } from "@heroui/theme";
 import { useRouter } from "next/navigation";
 import React, { ReactNode } from "react";
 import { tv } from "tailwind-variants";

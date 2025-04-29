@@ -4,9 +4,9 @@
 
 import { useUpdateEffect } from "@/hooks";
 import { SearchResultItem } from "@/interfaces";
-import { Button, ButtonProps } from "@nextui-org/button";
-import { Kbd } from "@nextui-org/kbd";
-import { Modal, ModalContent } from "@nextui-org/modal";
+import { Button, ButtonProps } from "@heroui/button";
+import { Kbd } from "@heroui/kbd";
+import { Modal, ModalContent } from "@heroui/modal";
 import { isAppleDevice, isWebKit } from "@react-aria/utils";
 import { useLocalStorage, writeStorage } from "@rehooks/local-storage";
 import { clsx } from "clsx";
@@ -132,7 +132,7 @@ export const Cmdk: FC<{}> = () => {
 
   const pathname = usePathname();
 
-  const eventRef = useRef<"mouse" | "keyboard">();
+  const eventRef = useRef<"mouse" | "keyboard">("mouse");
   const listRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 

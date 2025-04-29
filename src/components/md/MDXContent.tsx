@@ -1,8 +1,8 @@
 "use client";
-import { Code } from "@nextui-org/code";
-import { Link } from "@nextui-org/link";
-import { clsx } from "@nextui-org/shared-utils";
-import { Snippet } from "@nextui-org/snippet";
+import { Code } from "@heroui/code";
+import { Link } from "@heroui/link";
+import { clsx } from "@heroui/shared-utils";
+import { Snippet } from "@heroui/snippet";
 import { Language } from "prism-react-renderer";
 import { FC, HTMLAttributes } from "react";
 import Markdown from "react-markdown";
@@ -65,7 +65,7 @@ const CodeElement = ({
   );
 };
 interface LinkedHeadingProps extends HTMLAttributes<HTMLHeadElement> {
-  as: keyof JSX.IntrinsicElements;
+  as: keyof React.JSX.IntrinsicElements;
   linked?: boolean;
 }
 

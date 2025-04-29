@@ -1,4 +1,4 @@
-import { nextui } from "@nextui-org/theme";
+import { heroui } from "@heroui/theme";
 import typograpy from "@tailwindcss/typography";
 
 const text = {
@@ -6,7 +6,7 @@ const text = {
   body: "#bdc8f0",
 };
 
-/** @type {import("@nextui-org/theme").ColorScale} */
+/** @type {import("@heroui/theme").ColorScale} */
 const primary = {
   DEFAULT: "#7390f4",
   foreground: "white",
@@ -27,7 +27,7 @@ module.exports = {
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -127,7 +127,7 @@ module.exports = {
   },
   darkMode: "class",
   plugins: [
-    nextui({
+    heroui({
       themes: {
         dark: {
           colors: {

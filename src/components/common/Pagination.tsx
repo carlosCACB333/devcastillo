@@ -1,7 +1,7 @@
 "use client";
 
 import { PageInfo } from "@/generated/graphql";
-import { Pagination as NextUIPagination } from "@nextui-org/pagination";
+import { Pagination as NextUIPagination } from "@heroui/pagination";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 interface Props extends PageInfo {
   onChangePage: (nextPage: boolean) => void;

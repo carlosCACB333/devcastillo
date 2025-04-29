@@ -2,9 +2,9 @@
 
 import { useAuthor } from "@/hooks";
 import { Route } from "@/interfaces";
-import { Button } from "@nextui-org/button";
-import { Kbd } from "@nextui-org/kbd";
-import { Link } from "@nextui-org/link";
+import { Button } from "@heroui/button";
+import { Kbd } from "@heroui/kbd";
+import { Link } from "@heroui/link";
 import {
   NavbarBrand,
   NavbarContent,
@@ -13,8 +13,8 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
   Navbar as NextUINavbar,
-} from "@nextui-org/navbar";
-import { clsx } from "@nextui-org/shared-utils";
+} from "@heroui/navbar";
+import { clsx } from "@heroui/shared-utils";
 import { isAppleDevice } from "@react-aria/utils";
 import { includes } from "lodash";
 import NextLink from "next/link";

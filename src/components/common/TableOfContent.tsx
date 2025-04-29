@@ -1,7 +1,7 @@
 "use client";
 import { Toc } from "@/interfaces";
-import { Card, CardBody, CardHeader } from "@nextui-org/card";
-import { Link } from "@nextui-org/link";
+import { Card, CardBody, CardHeader } from "@heroui/card";
+import { Link } from "@heroui/link";
 
 interface Props {
   toc: Toc[];

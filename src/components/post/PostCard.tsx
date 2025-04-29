@@ -2,7 +2,7 @@
 import { sizes } from "@/assets";
 import { Post } from "@/generated/graphql";
 import { formatDate } from "@/utils";
-import { Card, CardFooter, CardHeader } from "@nextui-org/card";
+import { Card, CardFooter, CardHeader } from "@heroui/card";
 import clsx from "clsx";
 import Link from "next/link";
 import { Icon } from "../common/icon";

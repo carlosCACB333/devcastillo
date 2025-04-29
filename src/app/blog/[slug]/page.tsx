@@ -4,17 +4,18 @@ import { IMG } from "@/components/common/IMG";
 import { MDXContent } from "@/components/md/MDXContent";
 import { Stage } from "@/generated/graphql";
 import { PageProps } from "@/interfaces";
-import { env, formatDate } from "@/utils";
+import { formatDate } from "@/utils";
 import { GRAPH_SDK } from "@/utils/sdk";
-import { Button } from "@nextui-org/button";
+import { Button } from "@heroui/button";
 import { Metadata, ResolvedMetadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa";
 
-const BlogPage = async ({ params, searchParams }: PageProps) => {
+const BlogPage = async ({ params }: PageProps) => {
+  const { slug } = await params;
   const { post } = await GRAPH_SDK.postBySlug({
-    slug: params.slug,
+    slug: slug,
     stage: Stage.Published,
   });
 
@@ -59,14 +60,15 @@ export async function generateStaticParams() {
   }));
 }
 
-export const revalidate = env.revalidate;
+export const revalidate = 36000; // 1 hour
 
 export async function generateMetadata(
   { params }: PageProps,
   parent: Promise<ResolvedMetadata>
 ): Promise<Metadata> {
+  const { slug } = await params;
   const { post } = await GRAPH_SDK.postBySlug({
-    slug: params.slug,
+    slug: slug,
     stage: Stage.Published,
   });
 

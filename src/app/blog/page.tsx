@@ -1,6 +1,5 @@
 import { CategoryList, PostList, PostPaginated } from "@/components/post";
 import { Stage } from "@/generated/graphql";
-import { env } from "@/utils";
 import { GRAPH_SDK } from "@/utils/sdk";
 
 const BlogsHome = async () => {
@@ -23,4 +22,4 @@ const BlogsHome = async () => {
 
 export default BlogsHome;
 
-export const revalidate = env.revalidate;
+export const revalidate = 36000; // 1 hour

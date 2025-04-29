@@ -1,8 +1,8 @@
 "use client";
 import { sizes } from "@/assets";
 import { Project } from "@/generated/graphql";
-import { Button } from "@nextui-org/button";
-import { Link } from "@nextui-org/link";
+import { Button } from "@heroui/button";
+import { Link } from "@heroui/link";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import { FC } from "react";

@@ -1,4 +1,4 @@
-import { clsx, getUniqueID } from "@nextui-org/shared-utils";
+import { clsx, getUniqueID } from "@heroui/shared-utils";
 import { Highlight, Language, PrismTheme } from "prism-react-renderer";
 import React, { forwardRef } from "react";
 

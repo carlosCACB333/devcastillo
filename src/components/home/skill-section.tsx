@@ -2,11 +2,10 @@
 
 import { sectionWrapper, subtitle, title } from "@/components";
 import { Category } from "@/generated/graphql";
-import { Button } from "@nextui-org/button";
-import { Card, CardBody } from "@nextui-org/card";
-import { Tooltip } from "@nextui-org/tooltip";
+import { Button } from "@heroui/button";
+import { Card, CardBody } from "@heroui/card";
+import { Tooltip } from "@heroui/tooltip";
 import { useState } from "react";
-import { SiIbmwatson } from "react-icons/si";
 import { GradientBox } from "../common/gradient-box";
 import { Icon } from "../common/icon";
 
@@ -28,9 +27,11 @@ export const SkillSection = ({ categories }: Props) => {
             </h1>
             <div className="flex flex-col md:flex-row items-center">
               <h1 className={title({ size: "lg" })}>tecnológicas&nbsp;</h1>
-              <SiIbmwatson
+              <Icon
                 className="text-success animate-heartbeat"
-                size={50}
+                height={50}
+                width={50}
+                name="ia"
                 style={{
                   animationDuration: "2.5s",
                 }}

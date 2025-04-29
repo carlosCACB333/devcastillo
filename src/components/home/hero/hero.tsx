@@ -3,8 +3,8 @@
 import { subtitle, title } from "@/components";
 import { Feature, FeaturesGrid } from "@/components/common/features-grid";
 import { useAuthor } from "@/hooks";
-import { Button } from "@nextui-org/button";
-import { Link } from "@nextui-org/link";
+import { Button } from "@heroui/button";
+import { Link } from "@heroui/link";
 import dynamic from "next/dynamic";
 import NextLink from "next/link";
 import { FC } from "react";

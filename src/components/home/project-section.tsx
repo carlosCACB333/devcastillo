@@ -1,6 +1,6 @@
 "use client";
 import { Project } from "@/generated/graphql";
-import { Button } from "@nextui-org/button";
+import { Button } from "@heroui/button";
 import NextLink from "next/link";
 import { FC } from "react";
 import { FaProjectDiagram } from "react-icons/fa";

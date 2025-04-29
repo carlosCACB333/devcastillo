@@ -2,14 +2,14 @@ import { MDXContent } from "@/components/md/MDXContent";
 import { ProjectCarrousel } from "@/components/project/ProjectCarrousel";
 import { Project, Stage } from "@/generated/graphql";
 import { PageProps } from "@/interfaces";
-import { env } from "@/utils";
 import { GRAPH_SDK } from "@/utils/sdk";
 import { Metadata, ResolvedMetadata } from "next";
 import { notFound } from "next/navigation";
 
-const ProjectPage = async ({ params, searchParams }: PageProps) => {
+const ProjectPage = async ({ params }: PageProps) => {
+  const { slug } = await params;
   const { project } = await GRAPH_SDK.projectBySlug({
-    slug: params.slug,
+    slug: slug,
     stage: Stage.Published,
   });
 
@@ -39,14 +39,15 @@ export async function generateStaticParams() {
   }));
 }
 
-export const revalidate = env.revalidate;
+export const revalidate = 36000; // 1 hour
 
 export async function generateMetadata(
   { params }: PageProps,
   parent: Promise<ResolvedMetadata>
 ): Promise<Metadata> {
+  const { slug } = await params;
   const { project } = await GRAPH_SDK.projectBySlug({
-    slug: params.slug,
+    slug: slug,
     stage: Stage.Published,
   });
   const projectTitle = project?.title || "Contenido no encontrado";

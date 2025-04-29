@@ -3,8 +3,8 @@ import { searchPosts } from "@/action";
 
 import { Post, Stage } from "@/generated/graphql";
 import { useDebounce } from "@/hooks";
-import { Input } from "@nextui-org/input";
-import { Pagination } from "@nextui-org/pagination";
+import { Input } from "@heroui/input";
+import { Pagination } from "@heroui/pagination";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Icon } from "../common/icon";

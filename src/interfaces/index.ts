@@ -4,18 +4,18 @@ export * from "./contact";
 import { Locale } from "@/generated/graphql";
 
 export interface PageProps {
-  params: {
+  params: Promise<{
     locale: Locale;
     [key: string]: string;
-  };
-  searchParams: { [key: string]: string };
+  }>;
+  searchParams: Promise<{ [key: string]: string }>;
 }
 
 export interface LayoutProps {
-  params: {
+  params: Promise<{
     locale: Locale;
     [key: string]: string;
-  };
+  }>;
   children: React.ReactNode;
 }
 

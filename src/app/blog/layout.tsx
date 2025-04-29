@@ -5,7 +5,7 @@ import { Stage } from "@/generated/graphql";
 import { LayoutProps } from "@/interfaces";
 import { formatDate } from "@/utils";
 import { GRAPH_SDK } from "@/utils/sdk";
-import { Link } from "@nextui-org/link";
+import { Link } from "@heroui/link";
 import { Metadata } from "next";
 import NextLink from "next/link";
 

@@ -7,7 +7,7 @@ import {
   TableColumn,
   TableHeader,
   TableRow,
-} from "@nextui-org/table";
+} from "@heroui/table";
 
 import { sizes } from "@/assets";
 import { sectionWrapper, subtitle, title } from "@/components";

@@ -1,5 +1,5 @@
 "use client";
-import { Link } from "@nextui-org/link";
+import { Link } from "@heroui/link";
 import React, { useEffect, useRef, useState } from "react";
 import { FaHashtag } from "react-icons/fa";
 

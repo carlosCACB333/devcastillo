@@ -1,7 +1,7 @@
 import { useAuthor } from "@/hooks";
-import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
-import { Link } from "@nextui-org/link";
-import { clsx } from "@nextui-org/shared-utils";
+import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
+import { Link } from "@heroui/link";
+import { clsx } from "@heroui/shared-utils";
 import Image from "next/image";
 import { FC } from "react";
 

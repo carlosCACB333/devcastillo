@@ -1,8 +1,8 @@
 "use client";
 import { sizes } from "@/assets";
 import { Certification } from "@/generated/graphql";
-import { Button } from "@nextui-org/button";
-import { ArrowRightIcon } from "@nextui-org/shared-icons";
+import { Button } from "@heroui/button";
+import { ArrowRightIcon } from "@heroui/shared-icons";
 import NextLink from "next/link";
 import { AiFillSafetyCertificate } from "react-icons/ai";
 import "swiper/css";

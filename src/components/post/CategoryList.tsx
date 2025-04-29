@@ -1,7 +1,7 @@
 "use client";
 import { Category } from "@/generated/graphql";
 
-import { Card, CardFooter } from "@nextui-org/card";
+import { Card, CardFooter } from "@heroui/card";
 import Image from "next/image";
 import { FC } from "react";
 import { subtitle, title } from "..";

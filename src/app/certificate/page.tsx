@@ -7,8 +7,9 @@ import { Stage } from "@/generated/graphql";
 import { PageProps } from "@/interfaces";
 const PAGE_SIZE = 12;
 const Certification = async ({ searchParams }: PageProps) => {
-  const page = parseInt(searchParams.page || "1");
-  const query = (searchParams.query || "").trim();
+  const search = await searchParams;
+  const page = parseInt(search.page || "1");
+  const query = (search.query || "").trim();
   const skip = (page - 1) * PAGE_SIZE;
   const data = await searchCertification(
     query,
