@@ -32,14 +32,12 @@ const ProjectPage = async ({ params }: PageProps) => {
 export default ProjectPage;
 
 export async function generateStaticParams() {
-  const { projects } = await GRAPH_SDK.ProjectsSlug({});
-
-  return projects.map(({ slug }) => ({
-    slug,
-  }));
+  // not  generating static params for this page (Error: Too Many Requests in build time). Create page in first visit
+  return [];
 }
 
 export const revalidate = 36000; // 1 hour
+export const dynamicParams = true;
 
 export async function generateMetadata(
   { params }: PageProps,

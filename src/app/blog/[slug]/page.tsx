@@ -53,7 +53,7 @@ const BlogPage = async ({ params }: PageProps) => {
 export default BlogPage;
 
 export async function generateStaticParams() {
-  // not  generating static params for this page (Too Many Requests). Create page in first visit
+  // not  generating static params for this page (Error: Too Many Requests in build time). Create page in first visit
   return [];
 }
 
