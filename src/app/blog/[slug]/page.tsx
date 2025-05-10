@@ -61,6 +61,7 @@ export async function generateStaticParams() {
 }
 
 export const revalidate = 36000; // 1 hour
+export const dynamicParams = true;
 
 export async function generateMetadata(
   { params }: PageProps,
