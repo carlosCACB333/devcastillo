@@ -53,11 +53,8 @@ const BlogPage = async ({ params }: PageProps) => {
 export default BlogPage;
 
 export async function generateStaticParams() {
-  const { posts } = await GRAPH_SDK.postsSlug({});
-
-  return posts.map(({ slug }) => ({
-    slug,
-  }));
+  // not  generating static params for this page (Too Many Requests). Create page in first visit
+  return [];
 }
 
 export const revalidate = 36000; // 1 hour
