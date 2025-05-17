@@ -13,9 +13,8 @@ export const env = {
   },
   webLlmModel: process.env.NEXT_PUBLIC_WEB_LLM_MODEL || "",
   apiKey: process.env.API_KEY || "",
-  paypal: {
-    clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "",
-    secret_key: process.env.PAYPAL_SECRET_KEY || "",
+  mercadopago: {
+    accessToken: process.env.MP_ACCESS_TOKEN || "",
   },
 };
 
