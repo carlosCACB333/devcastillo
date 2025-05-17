@@ -5,6 +5,7 @@ import { Search } from "@/components/common/Searcher";
 import { ProjectCard } from "@/components/project/ProjectCard";
 import { Project, Stage } from "@/generated/graphql";
 import { PageProps } from "@/interfaces";
+import { AiOutlineSearch } from "react-icons/ai";
 const PAGE_SIZE = 4;
 
 const ProjectPage = async ({ searchParams }: PageProps) => {
@@ -19,6 +20,7 @@ const ProjectPage = async ({ searchParams }: PageProps) => {
     <div className="container mx-auto mt-20 p-6">
       <div className="max-w-lg mx-auto ">
         <Search
+          startContent={<AiOutlineSearch />}
           defaultValue={query}
           size="lg"
           placeholder="Buscar proyectos..."

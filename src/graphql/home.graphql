@@ -59,11 +59,11 @@ query getHomeData($locales: [Locale!]!, $stage: Stage!) {
       }
     }
   }
-  projects(orderBy: priority_DESC, first: 6, stage: $stage) {
+  projects(orderBy: priority_DESC, first: 9, stage: $stage) {
     ...ProjectFields
   }
 
-  certifications(orderBy: priority_DESC, first: 6, stage: $stage) {
+  certifications(orderBy: priority_DESC, first: 12, stage: $stage) {
     id
     name
     picture {

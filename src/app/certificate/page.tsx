@@ -5,6 +5,7 @@ import { Pagination } from "@/components/common/Pagination";
 import { Search } from "@/components/common/Searcher";
 import { Stage } from "@/generated/graphql";
 import { PageProps } from "@/interfaces";
+import { AiOutlineSearch } from "react-icons/ai";
 const PAGE_SIZE = 12;
 const Certification = async ({ searchParams }: PageProps) => {
   const search = await searchParams;
@@ -23,6 +24,7 @@ const Certification = async ({ searchParams }: PageProps) => {
       <div className="container mx-auto mt-20 p-6">
         <div className="max-w-lg mx-auto mb-8 ">
           <Search
+            startContent={<AiOutlineSearch />}
             defaultValue={query}
             size="lg"
             placeholder="Buscar certificados"

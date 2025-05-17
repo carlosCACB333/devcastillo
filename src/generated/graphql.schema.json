@@ -1,10 +1,12 @@
 {
   "__schema": {
     "queryType": {
-      "name": "Query"
+      "name": "Query",
+      "kind": "OBJECT"
     },
     "mutationType": {
-      "name": "Mutation"
+      "name": "Mutation",
+      "kind": "OBJECT"
     },
     "subscriptionType": null,
     "types": [
@@ -1579,6 +1581,18 @@
             "deprecationReason": null
           },
           {
+            "name": "upload",
+            "description": "Returns information you need to upload the asset. The type of upload is dependant on what you pass into asset creations as upload type.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "AssetUpload",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "url",
             "description": "Get the url for the asset with provided transformations applied.",
             "args": [
@@ -1791,40 +1805,8 @@
             "name": "fileName",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "handle",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "height",
-            "description": null,
-            "type": {
               "kind": "SCALAR",
-              "name": "Float",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null,
@@ -1849,18 +1831,6 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "AssetCreateLocalizationsInput",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "mimeType",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
               "ofType": null
             },
             "defaultValue": null,
@@ -1904,18 +1874,6 @@
             "deprecationReason": null
           },
           {
-            "name": "size",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "updatedAt",
             "description": null,
             "type": {
@@ -1928,11 +1886,11 @@
             "deprecationReason": null
           },
           {
-            "name": "width",
-            "description": null,
+            "name": "uploadUrl",
+            "description": "Optionally the system can upload a file for you, for that you need to provide a publicly accessible url",
             "type": {
               "kind": "SCALAR",
-              "name": "Float",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null,
@@ -1967,64 +1925,8 @@
             "name": "fileName",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "handle",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "height",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "mimeType",
-            "description": null,
-            "type": {
               "kind": "SCALAR",
               "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "size",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
               "ofType": null
             },
             "defaultValue": null,
@@ -2044,11 +1946,11 @@
             "deprecationReason": null
           },
           {
-            "name": "width",
-            "description": null,
+            "name": "uploadUrl",
+            "description": "Optionally the system can upload a file for you, for that you need to provide a publicly accessible url",
             "type": {
               "kind": "SCALAR",
-              "name": "Float",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null,
@@ -3110,6 +3012,18 @@
             "defaultValue": null,
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "upload",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "AssetUploadWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "interfaces": null,
@@ -3250,6 +3164,90 @@
       },
       {
         "kind": "INPUT_OBJECT",
+        "name": "AssetSingleRelationWhereInput",
+        "description": "Identifies documents",
+        "isOneOf": false,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "AND",
+            "description": "Logical AND on all given filters.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "AssetSingleRelationWhereInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "NOT",
+            "description": "Logical NOT on all given filters combined by AND.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "AssetSingleRelationWhereInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "OR",
+            "description": "Logical OR on all given filters.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "AssetSingleRelationWhereInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "upload",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "AssetUploadWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
         "name": "AssetTransformationInput",
         "description": "Transformations for Assets",
         "isOneOf": false,
@@ -3340,30 +3338,6 @@
             "deprecationReason": null
           },
           {
-            "name": "handle",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "height",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "imgCategory",
             "description": null,
             "type": {
@@ -3381,18 +3355,6 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "AssetUpdateLocalizationsInput",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "mimeType",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
               "ofType": null
             },
             "defaultValue": null,
@@ -3436,11 +3398,11 @@
             "deprecationReason": null
           },
           {
-            "name": "size",
-            "description": null,
+            "name": "reUpload",
+            "description": "Use this to define if its a reupload for the asset",
             "type": {
               "kind": "SCALAR",
-              "name": "Float",
+              "name": "Boolean",
               "ofType": null
             },
             "defaultValue": null,
@@ -3448,11 +3410,11 @@
             "deprecationReason": null
           },
           {
-            "name": "width",
-            "description": null,
+            "name": "uploadUrl",
+            "description": "Optionally the system can upload a file for you, for that you need to provide a publicly accessible url",
             "type": {
               "kind": "SCALAR",
-              "name": "Float",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null,
@@ -3484,59 +3446,23 @@
             "deprecationReason": null
           },
           {
-            "name": "handle",
-            "description": null,
+            "name": "reUpload",
+            "description": "Use this to define if its a reupload for the asset",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uploadUrl",
+            "description": "Optionally the system can upload a file for you, for that you need to provide a publicly accessible url",
             "type": {
               "kind": "SCALAR",
               "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "height",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "mimeType",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "size",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "width",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
               "ofType": null
             },
             "defaultValue": null,
@@ -3844,220 +3770,12 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "fileName",
-            "description": null,
+            "name": "_",
+            "description": "No fields in updateMany data input",
             "type": {
               "kind": "SCALAR",
               "name": "String",
               "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "height",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "localizations",
-            "description": "Optional updates to localizations",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "AssetUpdateManyLocalizationsInput",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "mimeType",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "size",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "width",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "AssetUpdateManyLocalizationDataInput",
-        "description": null,
-        "isOneOf": false,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "fileName",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "height",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "mimeType",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "size",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "width",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "AssetUpdateManyLocalizationInput",
-        "description": null,
-        "isOneOf": false,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "data",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "INPUT_OBJECT",
-                "name": "AssetUpdateManyLocalizationDataInput",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "locale",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "Locale",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "AssetUpdateManyLocalizationsInput",
-        "description": null,
-        "isOneOf": false,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "update",
-            "description": "Localizations to update",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "AssetUpdateManyLocalizationInput",
-                  "ofType": null
-                }
-              }
             },
             "defaultValue": null,
             "isDeprecated": false,
@@ -4228,6 +3946,746 @@
               "ofType": {
                 "kind": "INPUT_OBJECT",
                 "name": "AssetWhereUniqueInput",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "AssetUpload",
+        "description": "Asset Upload",
+        "isOneOf": null,
+        "fields": [
+          {
+            "name": "error",
+            "description": "Asset Upload Error",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "AssetUploadError",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt",
+            "description": "Expiry Timestamp",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "requestPostData",
+            "description": "Asset Request Data for upload",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "AssetUploadRequestPostData",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "status",
+            "description": "Asset Request Data for upload",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "AssetUploadStatus",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "AssetUploadError",
+        "description": "Represents asset upload error",
+        "isOneOf": null,
+        "fields": [
+          {
+            "name": "code",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "message",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "AssetUploadRequestPostData",
+        "description": "Asset Upload Request Post Data",
+        "isOneOf": null,
+        "fields": [
+          {
+            "name": "algorithm",
+            "description": "The algorithm to use in the form field. This value should be passed in the `X-Amz-Algorithm` form field.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "credential",
+            "description": "The credential to use in the form field. This value should be passed in the `X-Amz-Credential` form field.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "date",
+            "description": "The date the request was signed, formatted as YYYYMMDDTHHMMSSZ. This value should be passed in the `X-Amz-Date` header.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "key",
+            "description": "The key to use in the form field. This value should be passed in the `Key` form field.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "policy",
+            "description": "The policy to use in the form field. This value should be passed in the `Policy` form field.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "securityToken",
+            "description": "The security token to use in the form field. This field is optional only pass it if its not null. This value should be passed in the `X-Amz-Security-Token` form field if not null.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "signature",
+            "description": "The signature to use in the form field. This value should be passed in the `X-Amz-Signature` form field.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url",
+            "description": "The URL to which the file should be uploaded with a POST request.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "AssetUploadStatus",
+        "description": "System Asset Upload Status",
+        "isOneOf": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "ASSET_CREATE_PENDING",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ASSET_ERROR_UPLOAD",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ASSET_UPDATE_PENDING",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ASSET_UPLOAD_COMPLETE",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "AssetUploadWhereInput",
+        "description": "Identifies documents",
+        "isOneOf": false,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "AND",
+            "description": "Logical AND on all given filters.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "AssetUploadWhereInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "NOT",
+            "description": "Logical NOT on all given filters combined by AND.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "AssetUploadWhereInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "OR",
+            "description": "Logical OR on all given filters.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "AssetUploadWhereInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt_gt",
+            "description": "All values greater than the given value.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt_gte",
+            "description": "All values greater than or equal the given value.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt_in",
+            "description": "All values that are contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt_lt",
+            "description": "All values less than the given value.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt_lte",
+            "description": "All values less than or equal the given value.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt_not",
+            "description": "Any other value that exists and is not equal to the given value.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt_not_in",
+            "description": "All values that are not contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "status",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "AssetUploadStatus",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "status_in",
+            "description": "All values that are contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "AssetUploadStatus",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "status_not",
+            "description": "Any other value that exists and is not equal to the given value.",
+            "type": {
+              "kind": "ENUM",
+              "name": "AssetUploadStatus",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "status_not_in",
+            "description": "All values that are not contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "AssetUploadStatus",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "AssetUploadWhereStageInput",
+        "description": "Identifies documents",
+        "isOneOf": false,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "AND",
+            "description": "Logical AND on all given filters.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "AssetUploadWhereInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "NOT",
+            "description": "Logical NOT on all given filters combined by AND.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "AssetUploadWhereInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "OR",
+            "description": "Logical OR on all given filters.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "AssetUploadWhereInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt_gt",
+            "description": "All values greater than the given value.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt_gte",
+            "description": "All values greater than or equal the given value.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt_in",
+            "description": "All values that are contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt_lt",
+            "description": "All values less than the given value.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt_lte",
+            "description": "All values less than or equal the given value.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt_not",
+            "description": "Any other value that exists and is not equal to the given value.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt_not_in",
+            "description": "All values that are not contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "status",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "AssetUploadStatus",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "status_in",
+            "description": "All values that are contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "AssetUploadStatus",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "status_not",
+            "description": "Any other value that exists and is not equal to the given value.",
+            "type": {
+              "kind": "ENUM",
+              "name": "AssetUploadStatus",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "status_not_in",
+            "description": "All values that are not contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "AssetUploadStatus",
                 "ofType": null
               }
             },
@@ -5848,6 +6306,18 @@
             "deprecationReason": null
           },
           {
+            "name": "upload",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "AssetUploadWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "width",
             "description": null,
             "type": {
@@ -6235,6 +6705,18 @@
                       "ofType": null
                     }
                   }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "where",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "AssetSingleRelationWhereInput",
+                  "ofType": null
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -14511,6 +14993,18 @@
                 "defaultValue": null,
                 "isDeprecated": false,
                 "deprecationReason": null
+              },
+              {
+                "name": "where",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "AssetSingleRelationWhereInput",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
               }
             ],
             "type": {
@@ -19891,6 +20385,18 @@
                 "defaultValue": null,
                 "isDeprecated": false,
                 "deprecationReason": null
+              },
+              {
+                "name": "where",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "AssetSingleRelationWhereInput",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
               }
             ],
             "type": {
@@ -23189,19 +23695,31 @@
         "interfaces": null,
         "enumValues": [
           {
-            "name": "doc",
+            "name": "autoImage",
+            "description": "Automatically selects the best format for the image based on the browser's capabilities.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "avif",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "docx",
+            "name": "bmp",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "html",
+            "name": "gif",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "heic",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -23213,43 +23731,7 @@
             "deprecationReason": null
           },
           {
-            "name": "odp",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "ods",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "odt",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pdf",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "png",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "ppt",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pptx",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -23261,25 +23743,13 @@
             "deprecationReason": null
           },
           {
-            "name": "txt",
+            "name": "tiff",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "webp",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "xls",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "xlsx",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -23296,7 +23766,7 @@
         "inputFields": [
           {
             "name": "format",
-            "description": "Transforms a document into a desired file type.\nSee this matrix for format support:\n\nPDF:\tjpg, odp, ods, odt, png, svg, txt, and webp\nDOC:\tdocx, html, jpg, odt, pdf, png, svg, txt, and webp\nDOCX:\tdoc, html, jpg, odt, pdf, png, svg, txt, and webp\nODT:\tdoc, docx, html, jpg, pdf, png, svg, txt, and webp\nXLS:\tjpg, pdf, ods, png, svg, xlsx, and webp\nXLSX:\tjpg, pdf, ods, png, svg, xls, and webp\nODS:\tjpg, pdf, png, xls, svg, xlsx, and webp\nPPT:\tjpg, odp, pdf, png, svg, pptx, and webp\nPPTX:\tjpg, odp, pdf, png, svg, ppt, and webp\nODP:\tjpg, pdf, png, ppt, svg, pptx, and webp\nBMP:\tjpg, odp, ods, odt, pdf, png, svg, and webp\nGIF:\tjpg, odp, ods, odt, pdf, png, svg, and webp\nJPG:\tjpg, odp, ods, odt, pdf, png, svg, and webp\nPNG:\tjpg, odp, ods, odt, pdf, png, svg, and webp\nWEBP:\tjpg, odp, ods, odt, pdf, png, svg, and webp\nTIFF:\tjpg, odp, ods, odt, pdf, png, svg, and webp\nAI:\t    jpg, odp, ods, odt, pdf, png, svg, and webp\nPSD:\tjpg, odp, ods, odt, pdf, png, svg, and webp\nSVG:\tjpg, odp, ods, odt, pdf, png, and webp\nHTML:\tjpg, odt, pdf, svg, txt, and webp\nTXT:\tjpg, html, odt, pdf, svg, and webp",
+            "description": "Transforms a document into a desired file type.\nSee this matrix for format support:\n\nJPG:\tautoImage, bmp, gif, jpg, png, webp, tiff\nPNG:\tautoImage, bmp, gif, jpg, png, webp, tiff, svg\nSVG:\tautoImage, bmp, gif, jpg, png, webp, tiff\nWEBP:\tautoImage, bmp, gif, jpg, png, webp, tiff, svg\nGIF:\tautoImage, bmp, gif, jpg, png, webp, tiff, svg\nTIFF:\tautoImage, bmp, gif, jpg, png, webp, tiff, svg\nAVIF:\tautoImage, bmp, gif, jpg, png, webp, tiff, svg\nPDF: \tautoImage, gif, jpg, png, webp, tiff\n",
             "type": {
               "kind": "ENUM",
               "name": "DocumentFileTypes",
@@ -23696,6 +24166,198 @@
         "possibleTypes": null
       },
       {
+        "kind": "INPUT_OBJECT",
+        "name": "ImageBlurInput",
+        "description": null,
+        "isOneOf": false,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "amount",
+            "description": "The amount of blurring to apply to the image. The value must be an integer from 1 to 20.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "ImageBorderInput",
+        "description": "Adds a border to the image.",
+        "isOneOf": false,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "background",
+            "description": "The background color of the border. The value must be a valid hex color code. Or one of the supported color names.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "color",
+            "description": "The color of the border. The value must be a valid hex color code. Or one of the supported color names.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "width",
+            "description": "The width of the border in pixels. The value must be an integer from 1 to 1000.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "ImageCompressInput",
+        "description": null,
+        "isOneOf": false,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "metadata",
+            "description": "Preserves the metadata of the image.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "ImageCropInput",
+        "description": "Crops the image to the specified dimensions.\nThe starting points for X and Y coordinates are [0,0], aligning with the top-left corner of the image.\nThe width and height parameters determine the size in pixels of the cropping rectangle.\nThe output will include only the portion of the image within the designated crop area.",
+        "isOneOf": false,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "height",
+            "description": "The height in pixels to resize the image to. The value must be an integer from 1 to 10000.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "width",
+            "description": "The width in pixels to resize the image to. The value must be an integer from 1 to 10000.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "x",
+            "description": "The x coordinate of the image. The value must be an integer from 0 to 10000.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "y",
+            "description": "The y coordinate of the image. The value must be an integer from 0 to 10000.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
         "kind": "ENUM",
         "name": "ImageFit",
         "description": null,
@@ -23729,6 +24391,34 @@
             "deprecationReason": null
           }
         ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "ImageQualityInput",
+        "description": null,
+        "isOneOf": false,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "value",
+            "description": "The quality of the image. The value must be an integer from 1 to 100.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
         "possibleTypes": null
       },
       {
@@ -23781,17 +24471,117 @@
       },
       {
         "kind": "INPUT_OBJECT",
+        "name": "ImageSharpenInput",
+        "description": null,
+        "isOneOf": false,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "amount",
+            "description": "The amount of sharpening to apply to the image. The value must be an integer from 1 to 20.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
         "name": "ImageTransformationInput",
         "description": "Transformations for Images",
         "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
+            "name": "blur",
+            "description": "Blurs the image.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ImageBlurInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "border",
+            "description": "Adds a border to the image.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ImageBorderInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "compress",
+            "description": "Compresses the image.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ImageCompressInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "crop",
+            "description": "Crops the image to the specified dimensions.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ImageCropInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "quality",
+            "description": "Changes the quality of the image. The value must be an integer from 1 to 100.\nOnly supported for the following formats jpeg, jpg, webp, gif, heif, tiff, avif.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ImageQualityInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "resize",
             "description": "Resizes the image",
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "ImageResizeInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sharpen",
+            "description": "Sharpens the image.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ImageSharpenInput",
               "ofType": null
             },
             "defaultValue": null,
@@ -23989,7 +24779,7 @@
         "fields": [
           {
             "name": "createAsset",
-            "description": "Create one asset",
+            "description": "Create an asset. Use the returned info to finish the creation process by uploading the asset.",
             "args": [
               {
                 "name": "data",
@@ -24013,8 +24803,8 @@
               "name": "Asset",
               "ofType": null
             },
-            "isDeprecated": true,
-            "deprecationReason": "Asset mutations will be overhauled soon"
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "createAuthor",
@@ -32777,6 +33567,18 @@
                       "ofType": null
                     }
                   }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "where",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "AssetSingleRelationWhereInput",
+                  "ofType": null
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
