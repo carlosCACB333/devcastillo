@@ -59,12 +59,16 @@ export const ExperienceSection = () => {
                 datos, reduciendo los tiempos de carga.
               </li>
               <li>
+                Implementé un sistema de chat en tiempo real utilizando
+                WebSockets para mejorar la interacción del usuario.
+              </li>
+              <li>
                 Apliqué diferentes estrategias de renderizado (SSR, SSG, ISR)
                 para mejorar el rendimiento y SEO.
               </li>
               <li>
-                Trabajé con Node.js, React.js, Next.js, Tailwind CSS, Redux y
-                TypeScript.
+                Trabajé con Node.js, React.js, Next.js, Tailwind CSS,
+                WebSockets, Zustand Redux y TypeScript.
               </li>
             </ul>
           </WizardItem>
@@ -81,32 +85,28 @@ export const ExperienceSection = () => {
             <ul className="list-disc list-outside marker:text-pink-500 ms-4">
               <li>
                 Desarrollé e implementé microservicios escalables para la
-                billetera digital BIM, asegurando alta
+                billetera digital BIM, asegurando alta disponibilidad y
+                mantenibilidad.
               </li>
-              <li>disponibilidad y mantenibilidad.</li>
               <li>
                 Optimizé el rendimiento de consultas a bases de datos y
-                endpoints de APIs, mejorando tiempos de
+                endpoints de APIs, mejorando tiempos de respuesta y reduciendo
+                la carga del sistema.
               </li>
-              <li>respuesta y reduciendo la carga del sistema.</li>
               <li>
                 Diseñé e implementé soluciones de interoperabilidad con otras
-                billeteras digitales, facilitando
+                billeteras digitales, facilitando integraciones seguras y
+                eficientes.
               </li>
               <li>
-                integraciones seguras y ecientes.Desarrollé el nuevo core
-                backend capaz de manejar peticiones
-              </li>
-              <li>
+                Desarrollé el nuevo core backend capaz de manejar peticiones
                 concurrentes a gran escala, incluyendo una refactorización
                 profunda del código legado.
               </li>
               <li>
                 Utilicé tecnologías modernas como Python, FastAPI, PostgreSQL,
-                MySQL, DynamoDB, AWS y Docker
-              </li>
-              <li>
-                para construir soluciones robustas y orientadas a rendimiento.
+                MySQL, DynamoDB, AWS y Docker para construir soluciones robustas
+                y orientadas a rendimiento.
               </li>
             </ul>
           </WizardItem>
