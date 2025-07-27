@@ -29,7 +29,7 @@ export const ChatBoot = () => {
   }, [isOpen]);
 
   return (
-    <aside className="fixed bottom-[1rem] right-[1rem] z-40 ">
+    <aside className="fixed bottom-4 right-4 z-40 ">
       <div className="relative">
         <Button
           className="z-50 shadow-2xl"
@@ -82,7 +82,7 @@ const ChatModal = () => {
     >
       <div className="h-8 bg-content1 rounded-md"></div>
       <div
-        className="p-4 scroll overflow-y-auto w-[90vw] sm:w-96 h-[60vh] sm:h-[34rem]"
+        className="p-4 scroll overflow-y-auto w-[90vw] sm:w-96 h-[60vh] sm:h-136"
         ref={containerRef}
       >
         <MessageItem

@@ -32,7 +32,7 @@ export default async function Home() {
   );
 
   return (
-    <div className="container mx-auto max-w-7xl px-6 flex-grow">
+    <div className="container mx-auto max-w-7xl px-6 grow">
       <main>
         <Hero
           features={[

@@ -5,14 +5,14 @@ const styles = tv({
   base: "flex relative w-full h-auto",
   variants: {
     to: {
-      top: "bg-gradient-to-t",
-      right: "bg-gradient-to-r",
-      left: "bg-gradient-to-l",
-      bottom: "bg-gradient-to-b",
-      "top-right": "bg-gradient-to-tr",
-      "top-left": "bg-gradient-to-tl",
-      "bottom-right": "bg-gradient-to-br",
-      "bottom-left": "bg-gradient-to-bl",
+      top: "bg-linear-to-t",
+      right: "bg-linear-to-r",
+      left: "bg-linear-to-l",
+      bottom: "bg-linear-to-b",
+      "top-right": "bg-linear-to-tr",
+      "top-left": "bg-linear-to-tl",
+      "bottom-right": "bg-linear-to-br",
+      "bottom-left": "bg-linear-to-bl",
     },
     color: {
       orange: "from-[#FFB457] to-[#FF705B]",
@@ -21,7 +21,7 @@ const styles = tv({
     },
     radius: {
       none: "rounded-none",
-      sm: "rounded-sm",
+      sm: "rounded-xs",
       lg: "rounded-lg",
       xl: "rounded-xl",
       "2xl": "rounded-2xl",
@@ -29,7 +29,7 @@ const styles = tv({
     },
     shadow: {
       none: "shadow-none",
-      sm: "shadow-sm",
+      sm: "shadow-xs",
       lg: "shadow-lg",
       xl: "shadow-xl",
       "2xl": "shadow-2xl",

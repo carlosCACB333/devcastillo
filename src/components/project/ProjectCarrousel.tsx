@@ -48,7 +48,7 @@ export const ProjectCarrousel: FC<Props> = ({ project }) => {
               <div
                 className={clsx(
                   "absolute h-1/2 w-full bottom-0",
-                  "bg-gradient-to-t from-background dark:from-dark to-transparent"
+                  "bg-linear-to-t from-background dark:from-dark to-transparent"
                 )}
               />
             </div>

@@ -24505,7 +24505,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "blur",
+            "name": "blur-sm",
             "description": "Blurs the image.",
             "type": {
               "kind": "INPUT_OBJECT",

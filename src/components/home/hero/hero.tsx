@@ -63,7 +63,7 @@ export const Hero: FC<Props> = ({ features }) => {
                 aria-label="boton sobre mí"
                 endContent={
                   <AiOutlineHeart
-                    className="group-data-[hover=true]:translate-x-0.5 outline-none transition-transform"
+                    className="group-data-[hover=true]:translate-x-0.5 outline-hidden transition-transform"
                     strokeWidth={2}
                   />
                 }
@@ -83,7 +83,7 @@ export const Hero: FC<Props> = ({ features }) => {
                 aria-label="boton descargar cv"
                 startContent={
                   <AiOutlinePaperClip
-                    className="group-data-[hover=true]:translate-x-0.5 outline-none transition-transform"
+                    className="group-data-[hover=true]:translate-x-0.5 outline-hidden transition-transform"
                     strokeWidth={2}
                   />
                 }

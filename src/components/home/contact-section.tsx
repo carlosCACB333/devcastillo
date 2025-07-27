@@ -60,7 +60,7 @@ export const ContactSection = () => {
           <Card>
             <CardBody>
               <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
-                <div className="relative overflow-hidden  bg-gradient-to-br from-blue-300 to-blue-900 rounded-lg p-8 ">
+                <div className="relative overflow-hidden  bg-linear-to-br from-blue-300 to-blue-900 rounded-lg p-8 ">
                   <div>
                     <div className={titleWrapper()}>
                       <h1 className={title({ size: "lg" })}>

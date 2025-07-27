@@ -29,7 +29,7 @@ export const CategoryList: FC<Props> = ({ categories }) => {
               src={item.img!.url}
             />
             <CardFooter className="absolute bg-primary-50/60 bottom-0 z-10 gap-4">
-              <div className="flex flex-grow gap-2 items-center">
+              <div className="flex grow gap-2 items-center">
                 <div className="flex flex-col">
                   <p className={subtitle({ class: "text-foreground" })}>
                     {item.name}

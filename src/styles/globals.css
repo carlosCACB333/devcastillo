@@ -1,21 +1,56 @@
-@import "prism.css";
+@import "tailwindcss";
+@source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@import "./prism.css" layer(base);
+@plugin '../config/hero.ts';
+@plugin "@tailwindcss/typography";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@custom-variant dark (&:is(.dark *));
 
-html {
-  font-size: 16px;
-  padding: 0px !important;
-  overflow-x: hidden;
-  scroll-padding-top: 64px;
-}
+@theme {
+  --aspect-card: 1.6;
+  --animate-heartbeat: heartbeat 1s ease-in-out infinite;
+  --animate-levitate: levitate 5s ease infinite;
 
-body {
-  min-height: 100vh;
+  @keyframes heartbeat {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes levitate {
+    0% {
+      transform: translateY(0);
+    }
+    30% {
+      transform: translateY(-10px);
+    }
+    50% {
+      transform: translateY(4px);
+    }
+    70% {
+      transform: translateY(-15px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 }
 
 @layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+
   :root {
     /* code colors */
     --code-foreground: 244 244 244;
@@ -53,6 +88,19 @@ body {
   }
 }
 
+@layer utilities {
+  html {
+    font-size: 16px;
+    padding: 0px !important;
+    overflow-x: hidden;
+    scroll-padding-top: 64px;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+}
+
 pre {
   overflow-x: auto;
   white-space: pre-wrap;
@@ -64,26 +112,27 @@ pre {
 
 .scroll {
   &::-webkit-scrollbar {
-    appearance: none;
-    &:vertical {
-      width: 6px;
-    }
-    &:horizontal {
-      height: 6px;
-    }
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar:vertical {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar:horizontal {
+    height: 6px;
   }
 
   &::-webkit-scrollbar-button {
-    &,
-    &:increment {
-      display: none;
-    }
+    display: none;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #babfca83;
+    background-color: rgba(186, 191, 202, 0.51);
     border-radius: 20px;
   }
+
   &::-webkit-scrollbar-track {
     background-color: transparent;
   }

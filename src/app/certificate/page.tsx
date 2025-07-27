@@ -32,7 +32,7 @@ const Certification = async ({ searchParams }: PageProps) => {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2">
           {data?.edges?.map(({ node }) => (
-            <div key={node.id} className="relative w-full aspect-[4/3]">
+            <div key={node.id} className="relative w-full aspect-4/3">
               <IMG
                 src={node.picture.url}
                 alt={node.name}

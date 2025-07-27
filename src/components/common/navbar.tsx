@@ -61,7 +61,7 @@ export const Navbar: FC<NavbarProps> = ({
       }
       startContent={
         <AiOutlineSearch
-          className="text-base pointer-events-none flex-shrink-0"
+          className="text-base pointer-events-none shrink-0"
           size={18}
           strokeWidth={2}
         />
@@ -79,7 +79,7 @@ export const Navbar: FC<NavbarProps> = ({
   return (
     <NextUINavbar
       className={clsx({
-        "z-[100001]": isMenuOpen,
+        "z-100001": isMenuOpen,
       })}
       isMenuOpen={isMenuOpen}
       maxWidth="xl"

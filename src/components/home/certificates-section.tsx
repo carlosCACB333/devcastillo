@@ -52,7 +52,7 @@ export const CertificateSection = ({ certifications }: Props) => {
               color="secondary"
               endContent={
                 <ArrowRightIcon
-                  className="group-data-[hover=true]:translate-x-0.5 outline-none transition-transform"
+                  className="group-data-[hover=true]:translate-x-0.5 outline-hidden transition-transform"
                   strokeWidth={2}
                   aria-label="Ver más certificaciones"
                 />
@@ -81,7 +81,7 @@ export const CertificateSection = ({ certifications }: Props) => {
           >
             {certifications.map(({ id, picture, name }, idx) => (
               <SwiperSlide key={id}>
-                <div className="aspect-[4/3] ">
+                <div className="aspect-4/3 ">
                   <IMG src={picture.url} alt={name} sizes={sizes.md} />
                 </div>
               </SwiperSlide>

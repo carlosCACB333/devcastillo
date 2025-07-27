@@ -25,7 +25,7 @@ const BlogPage = async ({ params }: PageProps) => {
     <>
       <section className="relative aspect-square md:aspect-video">
         <IMG src={post.banner.url} alt={post.title} sizes={sizes.lg} priority />
-        <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-background dark:from-dark to-transparent w-full h-full flex flex-col justify-end">
+        <div className="absolute bottom-0 left-0 p-4 bg-linear-to-t from-background dark:from-dark to-transparent w-full h-full flex flex-col justify-end">
           <div className="max-w-4xl mx-auto">
             <p className="text-sm">{formatDate(post.updatedAt)}</p>
             <h1 className={title()}>{post.title}</h1>

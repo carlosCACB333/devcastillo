@@ -27,7 +27,7 @@ export const AboutSection = () => {
       id="home-about-me"
     >
       <div className="grid md:grid-cols-9 gap-8">
-        <div className="md:col-span-4 min-h-[46rem]">
+        <div className="md:col-span-4 min-h-184">
           <IMG
             src={photo.url}
             alt={author.firstName}

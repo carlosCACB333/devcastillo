@@ -65,7 +65,7 @@ const Layout = async ({ children }: LayoutProps) => {
         <div className="flex flex-col gap-4">
           {firstPosts.map((post) => (
             <div key={post.id} className="flex flex-row">
-              <div className="w-32 min-h-[4rem]">
+              <div className="w-32 min-h-16">
                 <IMG
                   src={post.banner.url}
                   alt={post.title}

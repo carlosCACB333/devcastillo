@@ -43,7 +43,7 @@ export const ProjectCard = ({ project, sizes = c.xs }: Props) => {
         />
       </div>
       <CardFooter className="absolute bg-warning-50/60 bottom-0 z-10 gap-4">
-        <div className="flex flex-grow gap-2 projects-center">
+        <div className="flex grow gap-2 projects-center">
           <div className="flex flex-col">
             <p className="font-bold">{project.title}</p>
             <p className="line-clamp-2">{project.abstract}</p>
