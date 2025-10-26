@@ -1,11 +1,11 @@
-import { aboutme } from "@/assets/aboutme";
-import { useLlm } from "@/store/web-llm";
-import { useRef, useState } from "react";
+import { aboutme } from '@/assets/aboutme';
+import { useLlm } from '@/store/web-llm';
+import { useRef, useState } from 'react';
 
 interface Message {
   id: string;
   content: string;
-  role: "user" | "assistant" | "system";
+  role: 'user' | 'assistant' | 'system';
 }
 
 export const useChat = () => {
@@ -20,22 +20,19 @@ export const useChat = () => {
       e.preventDefault();
       if (!isLoaded || !engine) return;
       const form = e.currentTarget;
-      const input = form.querySelector("input");
+      const input = form.querySelector('input');
       if (!input) return;
       const content = input.value;
       if (!content) return;
-      const user_msgs: Message[] = [
-        ...messages,
-        { id: "user_" + Date.now().toString(), content, role: "user" },
-      ];
+      const user_msgs: Message[] = [...messages, { id: 'user_' + Date.now().toString(), content, role: 'user' }];
       setMessages(user_msgs);
       setIsTyping(true);
       form.reset();
-      const id = "assistant_" + Date.now().toString();
+      const id = 'assistant_' + Date.now().toString();
       const chunks = await engine.chat.completions.create({
         messages: [
           {
-            role: "system",
+            role: 'system',
             content: `Eres el asistente virtual de Carlos. Usando la siguiente información, responde a las preguntas de los usuarios. 
             --- CONTEXTO ---
             ${aboutme}
@@ -50,13 +47,10 @@ export const useChat = () => {
         temperature: 0.2,
         max_tokens: 200,
       });
-      let completion = "";
+      let completion = '';
       for await (const chunk of chunks) {
-        completion += chunk.choices[0].delta.content || "";
-        const assistant_msgs: Message[] = [
-          ...user_msgs,
-          { id, content: completion, role: "assistant" },
-        ];
+        completion += chunk.choices[0].delta.content || '';
+        const assistant_msgs: Message[] = [...user_msgs, { id, content: completion, role: 'assistant' }];
         setMessages(assistant_msgs);
       }
       setIsTyping(false);

@@ -1,16 +1,16 @@
-"use client";
-import { sizes } from "@/assets";
-import { Certification } from "@/generated/graphql";
-import { Button } from "@heroui/button";
-import { ArrowRightIcon } from "@heroui/shared-icons";
-import NextLink from "next/link";
-import { AiFillSafetyCertificate } from "react-icons/ai";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Autoplay, EffectCreative, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { sectionWrapper, subtitle, title } from "..";
-import { IMG } from "../common/IMG";
+'use client';
+import { sizes } from '@/assets';
+import { Certification } from '@/generated/graphql';
+import { Button } from '@heroui/button';
+import { ArrowRightIcon } from '@heroui/shared-icons';
+import NextLink from 'next/link';
+import { AiFillSafetyCertificate } from 'react-icons/ai';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Autoplay, EffectCreative, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { sectionWrapper, subtitle, title } from '..';
+import { IMG } from '../common/IMG';
 interface Props {
   certifications: Certification[];
 }
@@ -19,56 +19,52 @@ export const CertificateSection = ({ certifications }: Props) => {
     <section
       className={sectionWrapper({
         isBlurred: true,
-        class:
-          "border-t border-b border-divider px-8 flex justify-center items-center mt-16 lg:mt-44",
+        class: 'border-divider mt-16 flex items-center justify-center border-t border-b px-8 lg:mt-44',
       })}
-      id="home-certifications"
+      id='home-certifications'
     >
-      <div className="w-full mx-8 py-10 grid grid-cols-12 gap-6 md:gap-0 z-20 items-center">
-        <div className="flex flex-col gap-2 col-span-12 md:col-span-5">
-          <div className="text-center lg:text-start">
-            <h1 className={title({ size: "lg" })}>Mis &nbsp;</h1>
-            <div className="flex flex-col items-center lg:flex-row">
-              <h1 className={title({ color: "violet", size: "lg" })}>
-                certificaciones&nbsp;
-              </h1>
+      <div className='z-20 mx-8 grid w-full grid-cols-12 items-center gap-6 py-10 md:gap-0'>
+        <div className='col-span-12 flex flex-col gap-2 md:col-span-5'>
+          <div className='text-center lg:text-start'>
+            <h1 className={title({ size: 'lg' })}>Mis &nbsp;</h1>
+            <div className='flex flex-col items-center lg:flex-row'>
+              <h1 className={title({ color: 'violet', size: 'lg' })}>certificaciones&nbsp;</h1>
               <AiFillSafetyCertificate
-                className="text-secondary animate-heartbeat"
+                className='text-secondary animate-heartbeat'
                 size={50}
                 style={{
-                  animationDuration: "2.5s",
+                  animationDuration: '2.5s',
                 }}
               />
             </div>
           </div>
-          <p className={subtitle({ class: "md:w-full text-base lg:text-lg" })}>
-            Aquí encontrarás las certificaciones que he obtenido a lo largo de
-            mi carrera profesional.
+          <p className={subtitle({ class: 'text-base md:w-full lg:text-lg' })}>
+            Aquí encontrarás las certificaciones que he obtenido a lo largo de mi carrera profesional.
           </p>
-          <div className="flex flex-row gap-3 justify-start">
+          <div className='flex flex-row justify-start gap-3'>
             <Button
               as={NextLink}
-              className="text-sm"
-              color="secondary"
+              className='text-sm'
+              color='secondary'
               endContent={
                 <ArrowRightIcon
-                  className="group-data-[hover=true]:translate-x-0.5 outline-hidden transition-transform"
+                  className='outline-hidden transition-transform group-data-[hover=true]:translate-x-0.5'
                   strokeWidth={2}
-                  aria-label="Ver más certificaciones"
+                  aria-label='Ver más certificaciones'
                 />
               }
-              aria-label="Ver más certificaciones"
-              href="/certificate"
-              size="lg"
+              aria-label='Ver más certificaciones'
+              href='/certificate'
+              size='lg'
             >
               Ver más
             </Button>
           </div>
         </div>
-        <div className="col-span-12 md:col-span-7">
+        <div className='col-span-12 md:col-span-7'>
           <Swiper
-            slidesPerView={"auto"}
-            effect="creative"
+            slidesPerView={'auto'}
+            effect='creative'
             spaceBetween={30}
             autoplay={{
               delay: 2500,
@@ -79,9 +75,9 @@ export const CertificateSection = ({ certifications }: Props) => {
             }}
             modules={[Pagination, Autoplay, EffectCreative]}
           >
-            {certifications.map(({ id, picture, name }, idx) => (
+            {certifications.map(({ id, picture, name }) => (
               <SwiperSlide key={id}>
-                <div className="aspect-4/3 ">
+                <div className='aspect-4/3'>
                   <IMG src={picture.url} alt={name} sizes={sizes.md} />
                 </div>
               </SwiperSlide>

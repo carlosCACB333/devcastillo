@@ -1,1 +1,1 @@
-export * from "./AuthorContext";
+export * from './AuthorContext';

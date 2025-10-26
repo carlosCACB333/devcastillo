@@ -16,7 +16,7 @@ export interface ChatpdfMsg extends Base {
   content: string;
   chatpdfId: string;
   chatpdf: Chatpdf;
-  role: "user" | "system" | "assistant";
+  role: 'user' | 'system' | 'assistant';
 }
 
 export interface User extends Base {
@@ -29,5 +29,5 @@ export interface User extends Base {
   password: string;
   photo: string;
   phone: string;
-  Status: "active" | "inactive";
+  Status: 'active' | 'inactive';
 }

@@ -70,7 +70,7 @@
 
 .code-block .token.deleted:not(.prefix),
 .code-block .token.inserted:not(.prefix) {
-  @apply block px-4 mx-auto;
+  @apply mx-auto block px-4;
 }
 
 .code-block .token.deleted:not(.prefix) {
@@ -113,7 +113,7 @@
 }
 
 /* Line numbers */
-.code-block[data-line-numbers="true"] .highlight-line::before {
+.code-block[data-line-numbers='true'] .highlight-line::before {
   color: rgb(var(--code-line-number));
   content: attr(data-line);
   position: absolute;
@@ -130,11 +130,11 @@
   @apply transition-colors;
 }
 
-.code-block .highlight-line[data-highlighted="false"] {
+.code-block .highlight-line[data-highlighted='false'] {
   color: rgb(var(--code-faded-line));
 }
 
-.code-block .highlight-line[data-highlighted="false"] * {
+.code-block .highlight-line[data-highlighted='false'] * {
   color: rgb(var(--code-faded-line));
 }
 

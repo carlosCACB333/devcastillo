@@ -1,22 +1,19 @@
-"use client";
+'use client';
 
-import { subtitle, title } from "@/components";
-import { Feature, FeaturesGrid } from "@/components/common/features-grid";
-import { useAuthor } from "@/hooks";
-import { Button } from "@heroui/button";
-import { Link } from "@heroui/link";
-import dynamic from "next/dynamic";
-import NextLink from "next/link";
-import { FC } from "react";
-import { AiOutlineHeart, AiOutlinePaperClip } from "react-icons/ai";
-import { FloatingComponents } from "./floating-components";
+import { subtitle, title } from '@/components';
+import { Feature, FeaturesGrid } from '@/components/common/features-grid';
+import { useAuthor } from '@/hooks';
+import { Button } from '@heroui/button';
+import { Link } from '@heroui/link';
+import dynamic from 'next/dynamic';
+import NextLink from 'next/link';
+import { FC } from 'react';
+import { AiOutlineHeart, AiOutlinePaperClip } from 'react-icons/ai';
+import { FloatingComponents } from './floating-components';
 
-const BgLooper = dynamic(
-  () => import("./bg-looper").then((mod) => mod.BgLooper),
-  {
-    ssr: false,
-  }
-);
+const BgLooper = dynamic(() => import('./bg-looper').then((mod) => mod.BgLooper), {
+  ssr: false,
+});
 
 interface Props {
   features: Feature[];
@@ -25,28 +22,19 @@ interface Props {
 export const Hero: FC<Props> = ({ features }) => {
   const { author } = useAuthor();
 
-  const [
-    firstWord = "",
-    secondWord = "",
-    thirdWord = "",
-    fourthWord = "",
-    fifthWord = "",
-  ] = author.profession!.split(" ");
+  const [firstWord = '', secondWord = '', thirdWord = '', fourthWord = '', fifthWord = ''] =
+    author.profession!.split(' ');
   return (
     <>
-      <section className="relative w-full flex flex-col gap-4 justify-evenly min-h-[calc(100vh-4rem)]">
-        <div className="flex flex-nowrap justify-between items-center h-full w-full">
-          <div className="flex relative z-20 flex-col gap-6 w-full md:w-1/2 xl:mt-10">
-            <h1 className={title({ size: "lg" })}>
+      <section className='relative flex min-h-[calc(100vh-4rem)] w-full flex-col justify-evenly gap-4'>
+        <div className='flex h-full w-full flex-nowrap items-center justify-between'>
+          <div className='relative z-20 flex w-full flex-col gap-6 md:w-1/2 xl:mt-10'>
+            <h1 className={title({ size: 'lg' })}>
               {firstWord} {secondWord} &nbsp;
-              <span className={title({ color: "blue", size: "lg" })}>
-                {thirdWord} &nbsp;
-              </span>
+              <span className={title({ color: 'blue', size: 'lg' })}>{thirdWord} &nbsp;</span>
               {fourthWord} &nbsp;
-              <span className={title({ color: "blue", size: "lg" })}>
-                {fifthWord}
-              </span>
-              <span className="animate-heartbeat">😎</span>
+              <span className={title({ color: 'blue', size: 'lg' })}>{fifthWord}</span>
+              <span className='animate-heartbeat'>😎</span>
             </h1>
             <h2
               className={subtitle({
@@ -55,20 +43,20 @@ export const Hero: FC<Props> = ({ features }) => {
             >
               {author.detail}
             </h2>
-            <div className="flex flex-col md:flex-row items-center gap-4">
+            <div className='flex flex-col items-center gap-4 md:flex-row'>
               <Button
                 as={NextLink}
-                className="w-full md:w-auto"
-                color="primary"
-                aria-label="boton sobre mí"
+                className='w-full md:w-auto'
+                color='primary'
+                aria-label='boton sobre mí'
                 endContent={
                   <AiOutlineHeart
-                    className="group-data-[hover=true]:translate-x-0.5 outline-hidden transition-transform"
+                    className='outline-hidden transition-transform group-data-[hover=true]:translate-x-0.5'
                     strokeWidth={2}
                   />
                 }
-                href="#home-about-me"
-                size="lg"
+                href='#home-about-me'
+                size='lg'
               >
                 Sobre mí
               </Button>
@@ -77,17 +65,17 @@ export const Hero: FC<Props> = ({ features }) => {
                 fullWidth
                 isExternal
                 as={Link}
-                className="w-full md:w-auto"
+                className='w-full md:w-auto'
                 href={author.cv?.url}
-                size="lg"
-                aria-label="boton descargar cv"
+                size='lg'
+                aria-label='boton descargar cv'
                 startContent={
                   <AiOutlinePaperClip
-                    className="group-data-[hover=true]:translate-x-0.5 outline-hidden transition-transform"
+                    className='outline-hidden transition-transform group-data-[hover=true]:translate-x-0.5'
                     strokeWidth={2}
                   />
                 }
-                variant="bordered"
+                variant='bordered'
               >
                 Descargar CV
               </Button>

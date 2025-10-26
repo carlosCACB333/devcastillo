@@ -1,9 +1,4 @@
-export const getMail = (
-  name: string,
-  email: string,
-  message: string,
-  phone: string
-) => `
+export const getMail = (name: string, email: string, message: string, phone: string) => `
 <!DOCTYPE html>
 <html>
 

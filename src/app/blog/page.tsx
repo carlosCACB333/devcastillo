@@ -1,20 +1,18 @@
-import { CategoryList, PostList, PostPaginated } from "@/components/post";
-import { Stage } from "@/generated/graphql";
-import { GRAPH_SDK } from "@/utils/sdk";
+import { CategoryList, PostList, PostPaginated } from '@/components/post';
+import { Category, Post, Stage } from '@/generated/graphql';
+import { GRAPH_SDK } from '@/utils/sdk';
 
 const BlogsHome = async () => {
   const { firstPosts, categories } = await GRAPH_SDK.blogsPage({
     stage: Stage.Published,
   });
 
-  const sortedCategories = [...categories]
-    .sort((a, b) => b.posts.length - a.posts.length)
-    .slice(0, 4);
+  const sortedCategories = [...categories].sort((a, b) => b.posts.length - a.posts.length).slice(0, 4);
 
   return (
-    <main className="p-6">
-      <PostList posts={firstPosts as any} />
-      <CategoryList categories={sortedCategories as any} />
+    <main className='p-6'>
+      <PostList posts={firstPosts as Post[]} />
+      <CategoryList categories={sortedCategories as Category[]} />
       <PostPaginated />
     </main>
   );

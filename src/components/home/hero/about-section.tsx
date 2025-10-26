@@ -1,20 +1,13 @@
-"use client";
+'use client';
 
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow,
-} from "@heroui/table";
+import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@heroui/table';
 
-import { sizes } from "@/assets";
-import { sectionWrapper, subtitle, title } from "@/components";
-import { IMG } from "@/components/common/IMG";
-import { MDXContent } from "@/components/md/MDXContent";
-import { useAuthor } from "@/hooks";
-import { AiFillHeart } from "react-icons/ai";
+import { sizes } from '@/assets';
+import { sectionWrapper, subtitle, title } from '@/components';
+import { IMG } from '@/components/common/IMG';
+import { MDXContent } from '@/components/md/MDXContent';
+import { useAuthor } from '@/hooks';
+import { AiFillHeart } from 'react-icons/ai';
 
 export const AboutSection = () => {
   const { author } = useAuthor();
@@ -22,44 +15,29 @@ export const AboutSection = () => {
   const photo = author.photos.at(-1)!;
 
   return (
-    <section
-      className={sectionWrapper({ class: "mt-24 lg:mt-56" })}
-      id="home-about-me"
-    >
-      <div className="grid md:grid-cols-9 gap-8">
-        <div className="md:col-span-4 min-h-184">
-          <IMG
-            src={photo.url}
-            alt={author.firstName}
-            sizes={sizes.sm}
-            className="rounded-3xl shadow-xl"
-          />
+    <section className={sectionWrapper({ class: 'mt-24 lg:mt-56' })} id='home-about-me'>
+      <div className='grid gap-8 md:grid-cols-9'>
+        <div className='min-h-184 md:col-span-4'>
+          <IMG src={photo.url} alt={author.firstName} sizes={sizes.sm} className='rounded-3xl shadow-xl' />
         </div>
-        <div className="md:col-span-5 content-center row-start-1 md:row-start-auto">
-          <div className="text-center md:text-start">
-            <h1 className={title({ size: "lg" })}>Conoce &nbsp;</h1>
-            <div className="flex flex-col items-center md:flex-row">
-              <h1 className={title({ color: "blue", size: "lg" })}>
-                más de mí&nbsp;
-              </h1>
+        <div className='row-start-1 content-center md:col-span-5 md:row-start-auto'>
+          <div className='text-center md:text-start'>
+            <h1 className={title({ size: 'lg' })}>Conoce &nbsp;</h1>
+            <div className='flex flex-col items-center md:flex-row'>
+              <h1 className={title({ color: 'blue', size: 'lg' })}>más de mí&nbsp;</h1>
               <AiFillHeart
-                className="text-primary animate-heartbeat"
+                className='text-primary animate-heartbeat'
                 size={50}
                 style={{
-                  animationDuration: "2.5s",
+                  animationDuration: '2.5s',
                 }}
               />
             </div>
           </div>
-          <div className={subtitle({ fullWidth: true, class: "my-6" })}>
+          <div className={subtitle({ fullWidth: true, class: 'my-6' })}>
             <MDXContent>{author.bio?.toString()}</MDXContent>
           </div>
-          <Table
-            hideHeader
-            removeWrapper
-            isCompact
-            aria-label="Tabla de información personal"
-          >
+          <Table hideHeader removeWrapper isCompact aria-label='Tabla de información personal'>
             <TableHeader>
               <TableColumn> Key </TableColumn>
               <TableColumn> Value </TableColumn>

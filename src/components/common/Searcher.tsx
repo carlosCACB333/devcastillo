@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { Input, InputProps } from "@heroui/input";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useRef } from "react";
+import { Input, InputProps } from '@heroui/input';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useRef } from 'react';
 
-const TO_RESET_SEARCH_PARAMS = ["page"];
+const TO_RESET_SEARCH_PARAMS = ['page'];
 
 export const Search = ({ defaultValue, ...props }: InputProps) => {
   const searchParams = useSearchParams();
@@ -15,9 +15,9 @@ export const Search = ({ defaultValue, ...props }: InputProps) => {
   const handleSearch = (query: string) => {
     const params = new URLSearchParams(searchParams);
     if (query) {
-      params.set("query", query);
+      params.set('query', query);
     } else {
-      params.delete("query");
+      params.delete('query');
     }
 
     TO_RESET_SEARCH_PARAMS.forEach((param) => {
@@ -31,13 +31,13 @@ export const Search = ({ defaultValue, ...props }: InputProps) => {
 
   return (
     <Input
-      aria-label="Buscar"
+      aria-label='Buscar'
       defaultValue={defaultValue}
       onValueChange={(value) => {
         if (timerRef.current) {
           clearTimeout(timerRef.current);
         }
-        let newQuery = value.trim();
+        const newQuery = value.trim();
         if (newQuery === defaultValue) return;
 
         timerRef.current = setTimeout(() => {

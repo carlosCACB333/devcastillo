@@ -31,20 +31,9 @@ query ProjectsSlug {
   }
 }
 
-query searchProjects(
-  $search: String!
-  $first: Int!
-  $skip: Int!
-  $stage: Stage!
-) {
+query searchProjects($search: String!, $first: Int!, $skip: Int!, $stage: Stage!) {
   projectsConnection(
-    where: {
-      OR: [
-        { title_contains: $search }
-        { abstract_contains: $search }
-        { detail_contains: $search }
-      ]
-    }
+    where: { OR: [{ title_contains: $search }, { abstract_contains: $search }, { detail_contains: $search }] }
     orderBy: publishedAt_DESC
     first: $first
     skip: $skip

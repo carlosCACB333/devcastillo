@@ -1,5 +1,5 @@
-import type { CodegenConfig } from "@graphql-codegen/cli";
-import { env } from "./src/utils/env";
+import type { CodegenConfig } from '@graphql-codegen/cli';
+import { env } from './src/utils/env';
 
 const config: CodegenConfig = {
   overwrite: true,
@@ -12,24 +12,18 @@ const config: CodegenConfig = {
       },
     },
   ],
-  documents: "src/graphql/**/*.graphql",
+  documents: 'src/graphql/**/*.graphql',
   generates: {
-    "src/generated/graphql.ts": {
-      plugins: [
-        "typescript",
-        "typescript-operations",
-        "typescript-graphql-request",
-      ],
+    'src/generated/graphql.ts': {
+      plugins: ['typescript', 'typescript-operations', 'typescript-graphql-request'],
       config: {},
     },
-    "src/generated/graphql.schema.json": {
-      plugins: ["introspection"],
+    'src/generated/graphql.schema.json': {
+      plugins: ['introspection'],
     },
   },
   hooks: {
-    afterOneFileWrite: [
-      'sed -i -e"s|graphql-request/dist/types.dom|graphql-request/src/types.dom|g"',
-    ],
+    afterOneFileWrite: ['sed -i -e"s|graphql-request/dist/types.dom|graphql-request/src/types.dom|g"'],
   },
 };
 

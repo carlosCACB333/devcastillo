@@ -1,15 +1,9 @@
-"use server";
+'use server';
 
-import { PostConnection, Stage } from "@/generated/graphql";
-import { GRAPH_SDK } from "@/utils/sdk";
+import { PostConnection, Stage } from '@/generated/graphql';
+import { GRAPH_SDK } from '@/utils/sdk';
 
-export const searchPosts = async (
-  keyword: string,
-  first: number,
-  skip: number,
-  stage: Stage,
-  slug?: string
-) => {
+export const searchPosts = async (keyword: string, first: number, skip: number, stage: Stage, slug?: string) => {
   if (slug) {
     const { postsConnection } = await GRAPH_SDK.searchPostsByCategory({
       search: keyword,

@@ -1,34 +1,34 @@
-"use client";
+'use client';
 
-import { sectionWrapper, subtitle, title } from "@/components";
-import { ReactNode } from "react";
-import { MdCheck, MdWorkHistory } from "react-icons/md";
+import { sectionWrapper, subtitle, title } from '@/components';
+import { ReactNode } from 'react';
+import { MdCheck, MdWorkHistory } from 'react-icons/md';
 
 export const ExperienceSection = () => {
   return (
     <>
       <section
         className={sectionWrapper({
-          class: "z-20 mt-16 lg:mt-44 max-w-4xl",
+          class: 'z-20 mt-16 max-w-4xl lg:mt-44',
         })}
       >
-        <div className="text-center md:text-start">
-          <h1 className={title({ size: "lg" })}>Mi &nbsp;</h1>
-          <h1 className={title({ color: "pink", size: "lg" })}>Experiencia</h1>
-          <div className="flex flex-col md:flex-row items-center">
-            <h1 className={title({ size: "lg" })}>profesional&nbsp;</h1>
+        <div className='text-center md:text-start'>
+          <h1 className={title({ size: 'lg' })}>Mi &nbsp;</h1>
+          <h1 className={title({ color: 'pink', size: 'lg' })}>Experiencia</h1>
+          <div className='flex flex-col items-center md:flex-row'>
+            <h1 className={title({ size: 'lg' })}>profesional&nbsp;</h1>
             <MdWorkHistory
-              className="text-pink-500 animate-heartbeat"
+              className='animate-heartbeat text-pink-500'
               size={50}
               style={{
-                animationDuration: "2.5s",
+                animationDuration: '2.5s',
               }}
             />
           </div>
         </div>
         <p className={subtitle()}>
           Mi experiencia profesional en el desarrollo de software
-          <span className="text-pink-500"> Full-Stack.</span>
+          <span className='text-pink-500'> Full-Stack.</span>
         </p>
 
         <br />
@@ -36,77 +36,55 @@ export const ExperienceSection = () => {
 
         <Wizard>
           <WizardItem>
-            <h3 className={title({ size: "xs" })}>
-              <span className="text-pink-500">Desarrollador FrontEnd</span>
+            <h3 className={title({ size: 'xs' })}>
+              <span className='text-pink-500'>Desarrollador FrontEnd</span>
               &nbsp;en TypeSubs
             </h3>
 
-            <time className="block mb-2 text-base italic leading-none opacity-80">
-              Octubre 2024 - Actualidad
-            </time>
+            <time className='mb-2 block text-base leading-none italic opacity-80'>Octubre 2024 - Actualidad</time>
 
-            <ul className="list-disc list-outside marker:text-pink-500 ms-4">
+            <ul className='ms-4 list-outside list-disc marker:text-pink-500'>
+              <li>Desarrollé interfaces modernas, accesibles, intuitivas, escalables y mantenibles.</li>
+              <li>Implementé pagos mediante Mercado Pago e integré sistemas de autenticación seguros con Auth0.</li>
               <li>
-                Desarrollé interfaces modernas, accesibles, intuitivas,
-                escalables y mantenibles.
+                Optimizé la experiencia del usuario a través de streaming de datos, reduciendo los tiempos de carga.
               </li>
               <li>
-                Implementé pagos mediante Mercado Pago e integré sistemas de
-                autenticación seguros con Auth0.
+                Implementé un sistema de chat en tiempo real utilizando WebSockets para mejorar la interacción del
+                usuario.
               </li>
-              <li>
-                Optimizé la experiencia del usuario a través de streaming de
-                datos, reduciendo los tiempos de carga.
-              </li>
-              <li>
-                Implementé un sistema de chat en tiempo real utilizando
-                WebSockets para mejorar la interacción del usuario.
-              </li>
-              <li>
-                Apliqué diferentes estrategias de renderizado (SSR, SSG, ISR)
-                para mejorar el rendimiento y SEO.
-              </li>
-              <li>
-                Trabajé con Node.js, React.js, Next.js, Tailwind CSS,
-                WebSockets, Zustand Redux y TypeScript.
-              </li>
+              <li>Apliqué diferentes estrategias de renderizado (SSR, SSG, ISR) para mejorar el rendimiento y SEO.</li>
+              <li>Trabajé con Node.js, React.js, Next.js, Tailwind CSS, WebSockets, Zustand Redux y TypeScript.</li>
             </ul>
           </WizardItem>
           <WizardItem>
-            <h3 className={title({ size: "xs" })}>
-              <span className="text-pink-500">Desarrollador Backend </span>
+            <h3 className={title({ size: 'xs' })}>
+              <span className='text-pink-500'>Desarrollador Backend </span>
               &nbsp;en Netdreams
             </h3>
 
-            <time className="block mb-2 text-base italic leading-none opacity-80">
-              Enero 2021 - Diciembre 2024
-            </time>
+            <time className='mb-2 block text-base leading-none italic opacity-80'>Enero 2021 - Diciembre 2024</time>
 
-            <ul className="list-disc list-outside marker:text-pink-500 ms-4">
+            <ul className='ms-4 list-outside list-disc marker:text-pink-500'>
               <li>
-                Desarrollé e implementé microservicios escalables para la
-                billetera digital BIM, asegurando alta disponibilidad y
-                mantenibilidad.
+                Desarrollé e implementé microservicios escalables para la billetera digital BIM, asegurando alta
+                disponibilidad y mantenibilidad.
               </li>
               <li>
-                Optimizé el rendimiento de consultas a bases de datos y
-                endpoints de APIs, mejorando tiempos de respuesta y reduciendo
-                la carga del sistema.
+                Optimizé el rendimiento de consultas a bases de datos y endpoints de APIs, mejorando tiempos de
+                respuesta y reduciendo la carga del sistema.
               </li>
               <li>
-                Diseñé e implementé soluciones de interoperabilidad con otras
-                billeteras digitales, facilitando integraciones seguras y
-                eficientes.
+                Diseñé e implementé soluciones de interoperabilidad con otras billeteras digitales, facilitando
+                integraciones seguras y eficientes.
               </li>
               <li>
-                Desarrollé el nuevo core backend capaz de manejar peticiones
-                concurrentes a gran escala, incluyendo una refactorización
-                profunda del código legado.
+                Desarrollé el nuevo core backend capaz de manejar peticiones concurrentes a gran escala, incluyendo una
+                refactorización profunda del código legado.
               </li>
               <li>
-                Utilicé tecnologías modernas como Python, FastAPI, PostgreSQL,
-                MySQL, DynamoDB, AWS y Docker para construir soluciones robustas
-                y orientadas a rendimiento.
+                Utilicé tecnologías modernas como Python, FastAPI, PostgreSQL, MySQL, DynamoDB, AWS y Docker para
+                construir soluciones robustas y orientadas a rendimiento.
               </li>
             </ul>
           </WizardItem>
@@ -118,7 +96,7 @@ export const ExperienceSection = () => {
 
 const Wizard = ({ children }: { children: ReactNode }) => {
   return (
-    <ol className="relative border-s border-gray-200 dark:border-gray-700 max-w-2xl flex flex-col gap-4 list-inside">
+    <ol className='relative flex max-w-2xl list-inside flex-col gap-4 border-s border-gray-200 dark:border-gray-700'>
       {children}
     </ol>
   );
@@ -126,9 +104,9 @@ const Wizard = ({ children }: { children: ReactNode }) => {
 
 const WizardItem = ({ children }: { children: ReactNode }) => {
   return (
-    <li className="ms-8">
-      <span className="absolute flex items-center justify-center  rounded-full -start-5 ring-8  ring-pink-200 dark:ring-pink-950 bg-pink-500 p-2">
-        <MdCheck className="text-background" size={20} />
+    <li className='ms-8'>
+      <span className='absolute -start-5 flex items-center justify-center rounded-full bg-pink-500 p-2 ring-8 ring-pink-200 dark:ring-pink-950'>
+        <MdCheck className='text-background' size={20} />
       </span>
       {children}
     </li>

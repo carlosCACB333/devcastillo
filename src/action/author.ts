@@ -1,8 +1,8 @@
-"use server";
+'use server';
 
-import { Locale, Stage } from "@/generated/graphql";
-import { env } from "@/utils";
-import { GRAPH_SDK } from "@/utils/sdk";
+import { Author, Locale, Stage } from '@/generated/graphql';
+import { env } from '@/utils';
+import { GRAPH_SDK } from '@/utils/sdk';
 
 export const getAuthor = async (locale: Locale) => {
   try {
@@ -12,9 +12,9 @@ export const getAuthor = async (locale: Locale) => {
       stage: Stage.Published,
     });
 
-    return author;
+    return author as Author;
   } catch (error) {
-    console.error("ERROR: getAuthor", error);
+    console.error('ERROR: getAuthor', error);
     return undefined;
   }
 };

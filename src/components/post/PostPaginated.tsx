@@ -1,25 +1,19 @@
-"use client";
-import { searchPosts } from "@/action";
+'use client';
+import { searchPosts } from '@/action';
 
-import { Post, Stage } from "@/generated/graphql";
-import { useDebounce } from "@/hooks";
-import { Input } from "@heroui/input";
-import { Pagination } from "@heroui/pagination";
-import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import { Icon } from "../common/icon";
-import { PostCard } from "./PostCard";
+import { Post, Stage } from '@/generated/graphql';
+import { useDebounce } from '@/hooks';
+import { Input } from '@heroui/input';
+import { Pagination } from '@heroui/pagination';
+import { useSearchParams } from 'next/navigation';
+import { startTransition, useEffect, useState } from 'react';
+import { Icon } from '../common/icon';
+import { PostCard } from './PostCard';
 
 const PAGE_SIZE = 6;
 
 const fetchPost = async (query: string, category: string, page: number) => {
-  const data = await searchPosts(
-    query,
-    PAGE_SIZE,
-    (page - 1) * PAGE_SIZE,
-    Stage.Published,
-    category
-  );
+  const data = await searchPosts(query, PAGE_SIZE, (page - 1) * PAGE_SIZE, Stage.Published, category);
   const posts = data.edges.map(({ node }) => node);
   const page_size = Math.ceil(data.aggregate.count / PAGE_SIZE);
   return { posts, page_size };
@@ -27,12 +21,12 @@ const fetchPost = async (query: string, category: string, page: number) => {
 
 export const PostPaginated = () => {
   const [posts, setPosts] = useState<Post[]>([]);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const [totalPages, setTotalPages] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const searchParams = useSearchParams();
-  const category = searchParams.get("category") || "";
+  const category = searchParams.get('category') || '';
 
   const query = useDebounce(input);
 
@@ -49,17 +43,19 @@ export const PostPaginated = () => {
   };
 
   useEffect(() => {
-    onSearch(query, category);
+    startTransition(() => {
+      onSearch(query, category);
+    });
   }, [query, category]);
 
   return (
     <div>
-      <div className="max-w-lg mx-auto ">
+      <div className='mx-auto max-w-lg'>
         <Input
-          startContent={<Icon name="search" />}
-          aria-label="Buscar"
-          placeholder="Buscar publicaciones"
-          size="lg"
+          startContent={<Icon name='search' />}
+          aria-label='Buscar'
+          placeholder='Buscar publicaciones'
+          size='lg'
           isDisabled={loading}
           value={input}
           onValueChange={setInput}
@@ -67,7 +63,7 @@ export const PostPaginated = () => {
       </div>
       <br />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3'>
         {posts.map((post) => (
           <PostCard key={post.id} post={post} />
         ))}
@@ -78,7 +74,7 @@ export const PostPaginated = () => {
         key={category + query + page}
         showControls
         showShadow
-        className="flex justify-end"
+        className='flex justify-end'
         total={totalPages}
         page={page}
         onChange={(page) => onSearch(query, category, page)}

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { AuthorContext } from "@/context";
-import { useContext } from "react";
+import { AuthorContext } from '@/context';
+import { useContext } from 'react';
 
 export const useAuthor = () => {
   const author = useContext(AuthorContext);

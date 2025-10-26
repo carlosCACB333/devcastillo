@@ -1,11 +1,9 @@
-export * from "./chatpdf";
-export * from "./contact";
-
-import { Locale } from "@/generated/graphql";
+export * from './chatpdf';
+export * from './contact';
 
 export interface PageProps {
   params: Promise<{
-    locale: Locale;
+    // locale: Locale;
     [key: string]: string;
   }>;
   searchParams: Promise<{ [key: string]: string }>;
@@ -13,7 +11,7 @@ export interface PageProps {
 
 export interface LayoutProps {
   params: Promise<{
-    locale: Locale;
+    // locale: Locale;
     [key: string]: string;
   }>;
   children: React.ReactNode;
@@ -29,7 +27,7 @@ export interface SearchResultItem {
   content: string;
   objectID: string;
   url: string;
-  type: "lvl1" | "lvl2" | "lvl3";
+  type: 'lvl1' | 'lvl2' | 'lvl3';
   hierarchy: {
     lvl1: string | null;
     lvl2?: string | null;
@@ -45,7 +43,7 @@ export interface Route {
 
 export interface Response<T> {
   data?: T;
-  status: "success" | "error";
+  status: 'success' | 'error';
   message?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }

@@ -1,10 +1,5 @@
 query getCertifications($first: Int!, $skip: Int!, $stage: Stage!) {
-  certifications(
-    orderBy: priority_DESC
-    first: $first
-    skip: $skip
-    stage: $stage
-  ) {
+  certifications(orderBy: priority_DESC, first: $first, skip: $skip, stage: $stage) {
     id
     name
     picture {
@@ -13,12 +8,7 @@ query getCertifications($first: Int!, $skip: Int!, $stage: Stage!) {
   }
 }
 
-query searchCertifications(
-  $search: String!
-  $first: Int!
-  $skip: Int!
-  $stage: Stage!
-) {
+query searchCertifications($search: String!, $first: Int!, $skip: Int!, $stage: Stage!) {
   certificationsConnection(
     orderBy: priority_DESC
     first: $first

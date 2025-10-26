@@ -1,2 +1,2 @@
-export * from "./hero";
-export * from "./Icon-card";
+export * from './hero';
+export * from './Icon-card';

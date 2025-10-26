@@ -3,10 +3,10 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "media.graphassets.com",
+        hostname: 'media.graphassets.com',
       },
       {
-        hostname: "sa-east-1.graphassets.com",
+        hostname: 'sa-east-1.graphassets.com',
       },
     ],
   },

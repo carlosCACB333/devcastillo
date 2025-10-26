@@ -1,38 +1,30 @@
-import { getAuthor } from "@/action";
-import { Cmdk } from "@/components/common/cmdk";
-import { Navbar } from "@/components/common/navbar";
-import { fontRoboto } from "@/config/fonts";
-import routes from "@/config/routes.json";
-import { siteConfig } from "@/config/site";
-import { Locale } from "@/generated/graphql";
-import "@/styles/globals.css";
-import { __PROD__ } from "@/utils";
-import { Analytics } from "@vercel/analytics/react";
-import { clsx } from "clsx";
-import "katex/dist/katex.min.css";
-import type { Viewport } from "next";
-import { Metadata } from "next";
-import { Providers } from "./providers";
+import { getAuthor } from '@/action';
+import { Cmdk } from '@/components/common/cmdk';
+import { Navbar } from '@/components/common/navbar';
+import { fontRoboto } from '@/config/fonts';
+import routes from '@/config/routes.json';
+import { siteConfig } from '@/config/site';
+import { Locale } from '@/generated/graphql';
+import '@/styles/globals.css';
+import { __PROD__ } from '@/utils';
+import { Analytics } from '@vercel/analytics/react';
+import { clsx } from 'clsx';
+import 'katex/dist/katex.min.css';
+import type { Viewport } from 'next';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { Providers } from './providers';
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const author = await getAuthor(Locale.Es);
+  if (!author) notFound();
 
   return (
-    <html suppressHydrationWarning dir="ltr" lang="es">
+    <html suppressHydrationWarning dir='ltr' lang='es'>
       <head />
-      <body
-        className={clsx(
-          "scroll overflow-x-clip",
-          "min-h-screen bg-background antialiased",
-          fontRoboto.className
-        )}
-      >
-        <Providers author={author as any}>
-          <div className="relative flex flex-col" id="app-container">
+      <body className={clsx('scroll overflow-x-clip', 'bg-background min-h-screen antialiased', fontRoboto.className)}>
+        <Providers author={author}>
+          <div className='relative flex flex-col' id='app-container'>
             <Navbar mobileRoutes={routes.mobileRoutes} routes={routes.routes} />
             {children}
           </div>
@@ -46,7 +38,7 @@ export default async function RootLayout({
 
 export async function generateMetadata(): Promise<Metadata> {
   const author = await getAuthor(Locale.Es);
-  const authorName = author?.firstName + " " + author?.lastName;
+  const authorName = author?.firstName + ' ' + author?.lastName;
 
   return {
     metadataBase: new URL(siteConfig.siteUrl),
@@ -58,26 +50,26 @@ export async function generateMetadata(): Promise<Metadata> {
     authors: [
       {
         name: authorName,
-        url: "/",
+        url: '/',
       },
     ],
     keywords: author?.keywords || [],
     creator: authorName,
     icons: {
-      icon: "/favicon.ico",
-      shortcut: "/favicon-32x32.png",
-      apple: "/apple-touch-icon.png",
+      icon: '/favicon.ico',
+      shortcut: '/favicon-32x32.png',
+      apple: '/apple-touch-icon.png',
     },
 
     openGraph: {
-      type: "website",
-      locale: "es_PE",
-      siteName: "carloscb",
+      type: 'website',
+      locale: 'es_PE',
+      siteName: 'carloscb',
       title: authorName,
       description: author?.bio?.toString(),
       images: [
         {
-          url: "/banner.png",
+          url: '/banner.png',
           width: 1540,
           height: 806,
           alt: authorName,
@@ -89,10 +81,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#eef6ff" },
-    { media: "(prefers-color-scheme: dark)", color: "#07090e" },
+    { media: '(prefers-color-scheme: light)', color: '#eef6ff' },
+    { media: '(prefers-color-scheme: dark)', color: '#07090e' },
   ],
-  width: "device-width",
+  width: 'device-width',
   initialScale: 1,
-  viewportFit: "cover",
+  viewportFit: 'cover',
 };

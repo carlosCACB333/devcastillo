@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { clsx } from "@heroui/shared-utils";
+import { clsx } from '@heroui/shared-utils';
 
-import { useIsMounted } from "@/hooks/use-is-mounted";
+import { useIsMounted } from '@/hooks/use-is-mounted';
 
 export const BgLooper = () => {
   const isMounted = useIsMounted();
@@ -10,9 +10,9 @@ export const BgLooper = () => {
   return (
     <div
       className={clsx(
-        "absolute -top-20 left-0 w-screen h-[calc(100%+5rem)]",
-        "transition-opacity opacity-50 -z-1",
-        "bg-left bg-no-repeat bg-[url('/gradients/looper-pattern.svg')]"
+        'absolute -top-20 left-0 h-[calc(100%+5rem)] w-screen',
+        '-z-1 opacity-50 transition-opacity',
+        "bg-[url('/gradients/looper-pattern.svg')] bg-left bg-no-repeat"
       )}
       data-mounted={isMounted}
     />

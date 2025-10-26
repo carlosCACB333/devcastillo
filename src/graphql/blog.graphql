@@ -81,13 +81,7 @@ query postBySlug($slug: String!, $stage: Stage!) {
 }
 
 query searchPosts($search: String!, $first: Int!, $skip: Int!, $stage: Stage!) {
-  postsConnection(
-    orderBy: priority_DESC
-    first: $first
-    skip: $skip
-    stage: $stage
-    where: { _search: $search }
-  ) {
+  postsConnection(orderBy: priority_DESC, first: $first, skip: $skip, stage: $stage, where: { _search: $search }) {
     edges {
       node {
         ...PostsField
@@ -104,13 +98,7 @@ query searchPosts($search: String!, $first: Int!, $skip: Int!, $stage: Stage!) {
   }
 }
 
-query searchPostsByCategory(
-  $search: String!
-  $slug: String!
-  $first: Int!
-  $skip: Int!
-  $stage: Stage!
-) {
+query searchPostsByCategory($search: String!, $slug: String!, $first: Int!, $skip: Int!, $stage: Stage!) {
   postsConnection(
     orderBy: priority_DESC
     first: $first

@@ -1,10 +1,10 @@
-import { MDXContent } from "@/components/md/MDXContent";
-import { ProjectCarrousel } from "@/components/project/ProjectCarrousel";
-import { Project, Stage } from "@/generated/graphql";
-import { PageProps } from "@/interfaces";
-import { GRAPH_SDK } from "@/utils/sdk";
-import { Metadata, ResolvedMetadata } from "next";
-import { notFound } from "next/navigation";
+import { MDXContent } from '@/components/md/MDXContent';
+import { ProjectCarrousel } from '@/components/project/ProjectCarrousel';
+import { Project, Stage } from '@/generated/graphql';
+import { PageProps } from '@/interfaces';
+import { GRAPH_SDK } from '@/utils/sdk';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 const ProjectPage = async ({ params }: PageProps) => {
   const { slug } = await params;
@@ -19,10 +19,10 @@ const ProjectPage = async ({ params }: PageProps) => {
 
   return (
     <>
-      <div className="relative -mt-16">
+      <div className='relative -mt-16'>
         <ProjectCarrousel project={project as Project} />
       </div>
-      <main className="max-w-4xl mx-auto p-6 prose dark:prose-invert">
+      <main className='prose dark:prose-invert mx-auto max-w-4xl p-6'>
         <MDXContent>{project?.detail}</MDXContent>
       </main>
     </>
@@ -39,29 +39,26 @@ export async function generateStaticParams() {
 export const revalidate = 36000; // 1 hour
 export const dynamicParams = true;
 
-export async function generateMetadata(
-  { params }: PageProps,
-  parent: Promise<ResolvedMetadata>
-): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const { project } = await GRAPH_SDK.projectBySlug({
     slug: slug,
     stage: Stage.Published,
   });
-  const projectTitle = project?.title || "Contenido no encontrado";
+  const projectTitle = project?.title || 'Contenido no encontrado';
   return {
-    title: project?.title || "Proyecto",
-    description: project?.abstract || "",
-    keywords: project?.abstract.split(" ") || [],
+    title: project?.title || 'Proyecto',
+    description: project?.abstract || '',
+    keywords: project?.abstract.split(' ') || [],
     openGraph: {
-      type: "website",
-      locale: "es_PE",
-      siteName: "carloscb",
+      type: 'website',
+      locale: 'es_PE',
+      siteName: 'carloscb',
       title: projectTitle,
-      description: project?.abstract || "",
+      description: project?.abstract || '',
       images: [
         {
-          url: project?.pictures[0].url || "/banner.png",
+          url: project?.pictures[0].url || '/banner.png',
           width: project?.pictures[0].height || 1540,
           height: project?.pictures[0].width || 806,
           alt: projectTitle,

@@ -1,6 +1,6 @@
-import { env } from "@/utils";
-import { CreateMLCEngine, MLCEngine } from "@mlc-ai/web-llm";
-import { create } from "zustand";
+import { env } from '@/utils';
+import { CreateMLCEngine, MLCEngine } from '@mlc-ai/web-llm';
+import { create } from 'zustand';
 
 interface LlmStore {
   engine: MLCEngine | null;
@@ -14,10 +14,10 @@ interface LlmStore {
 export const useLlm = create<LlmStore>((set, get) => {
   const initializeEngine = async () => {
     if (get()?.engine) return;
-    console.info("Initializing engine");
+    console.info('Initializing engine');
     set({
       status: {
-        text: "Cargando...",
+        text: 'Cargando...',
         progress: 0,
       },
     });
@@ -37,7 +37,7 @@ export const useLlm = create<LlmStore>((set, get) => {
       console.error(error);
       set({
         status: {
-          text: "Error al cargar el modelo",
+          text: 'Error al cargar el modelo',
           progress: 0,
         },
         isLoaded: false,
@@ -49,7 +49,7 @@ export const useLlm = create<LlmStore>((set, get) => {
 
   return {
     status: {
-      text: "Cargando...",
+      text: 'Cargando...',
       progress: 0,
     },
     engine: null,

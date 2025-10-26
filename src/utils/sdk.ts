@@ -1,9 +1,9 @@
-import { getSdk as sdk } from "@/generated/graphql";
-import { GraphQLClient } from "graphql-request";
-import { env } from "./env";
+import { getSdk as sdk } from '@/generated/graphql';
+import { GraphQLClient } from 'graphql-request';
+import { env } from './env';
 
 const client = new GraphQLClient(env.cms.url, {
-  cache: "force-cache",
+  cache: 'force-cache',
   headers: {
     Authorization: `Bearer ${env.cms.token}`,
   },

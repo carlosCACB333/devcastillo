@@ -1,8 +1,8 @@
-"use server";
+'use server';
 
-import { env } from "@/utils";
+import { env } from '@/utils';
 
-const preferenceUrl = "https://api.mercadopago.com/checkout/preferences";
+const preferenceUrl = 'https://api.mercadopago.com/checkout/preferences';
 
 interface CoffePreferenceState {
   ok?: boolean;
@@ -15,19 +15,19 @@ export const createCoffePreference = async (
   form: FormData
 ): Promise<CoffePreferenceState> => {
   try {
-    const amount = Number(form.get("amount"));
+    const amount = Number(form.get('amount'));
     if (isNaN(amount) || amount < 5) {
       return {
         ok: false,
-        error: "El monto mínimo es S/5.00",
+        error: 'El monto mínimo es S/5.00',
       };
     }
 
     const body = {
       items: [
         {
-          title: "Coffe",
-          description: "Invite me a coffe",
+          title: 'Coffe',
+          description: 'Invite me a coffe',
           quantity: 1,
           // currency_id: "PEN",
           unit_price: amount,
@@ -38,14 +38,14 @@ export const createCoffePreference = async (
         failure: `${env.site.url}/donate/completed/`,
         pending: `${env.site.url}/donate/completed/`,
       },
-      auto_return: "approved",
+      auto_return: 'approved',
     };
 
     const response = await fetch(preferenceUrl, {
-      method: "POST",
+      method: 'POST',
       headers: {
         Authorization: `Bearer ${env.mercadopago.accessToken}`,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
     });
@@ -53,7 +53,7 @@ export const createCoffePreference = async (
     if (!response.ok) {
       return {
         ok: false,
-        error: "Error creating preference",
+        error: 'Error creating preference',
       };
     }
 
@@ -63,10 +63,10 @@ export const createCoffePreference = async (
       ok: true,
       url,
     };
-  } catch (error) {
+  } catch {
     return {
       ok: false,
-      error: "Error creating preference",
+      error: 'Error creating preference',
     };
   }
 };
