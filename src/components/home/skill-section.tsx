@@ -48,7 +48,7 @@ export const SkillSection = ({ categories }: Props) => {
               <Button
                 size='lg'
                 key={item.id}
-                onClick={() => setSelected(item)}
+                onPress={() => setSelected(item)}
                 startContent={
                   <Icon
                     name={item.icon as IconName}
@@ -60,6 +60,7 @@ export const SkillSection = ({ categories }: Props) => {
                 }
                 className='justify-start'
                 color={selected.id === item.id ? 'success' : 'default'}
+                variant='shadow'
                 aria-label={item.name}
               >
                 {item.name}

@@ -45,28 +45,28 @@ export const AboutSection = () => {
 
             <TableBody>
               <TableRow key={1}>
-                <TableCell>Nombre</TableCell>
-                <TableCell>{fullName}</TableCell>
+                <TableCell className='text-foreground-500'>Nombre</TableCell>
+                <TableCell className='text-foreground-500'>{fullName}</TableCell>
               </TableRow>
               <TableRow key={2}>
-                <TableCell>Correo</TableCell>
-                <TableCell>{author.email}</TableCell>
+                <TableCell className='text-foreground-500'>Correo</TableCell>
+                <TableCell className='text-foreground-500'>{author.email}</TableCell>
               </TableRow>
               <TableRow key={5}>
-                <TableCell>Profesión</TableCell>
-                <TableCell>{author.profession?.toString()}</TableCell>
+                <TableCell className='text-foreground-500'>Profesión</TableCell>
+                <TableCell className='text-foreground-500'>{author.profession?.toString()}</TableCell>
               </TableRow>
               <TableRow key={6}>
-                <TableCell>Universidad</TableCell>
-                <TableCell>{author.university}</TableCell>
+                <TableCell className='text-foreground-500'>Universidad</TableCell>
+                <TableCell className='text-foreground-500'>{author.university}</TableCell>
               </TableRow>
               <TableRow key={7}>
-                <TableCell>Ciclo</TableCell>
-                <TableCell>{author.cycle?.toString()}</TableCell>
+                <TableCell className='text-foreground-500'>Ciclo</TableCell>
+                <TableCell className='text-foreground-500'>{author.cycle?.toString()}</TableCell>
               </TableRow>
               <TableRow key={8}>
-                <TableCell>Dirección</TableCell>
-                <TableCell>{author.address}</TableCell>
+                <TableCell className='text-foreground-500'>Dirección</TableCell>
+                <TableCell className='text-foreground-500'>{author.address}</TableCell>
               </TableRow>
             </TableBody>
           </Table>

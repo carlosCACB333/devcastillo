@@ -2,7 +2,7 @@ import { heroui, HeroUIPluginConfig, ThemeColors } from '@heroui/theme';
 
 const text = {
   title: '#d4ddfb',
-  body: '#bdc8f0',
+  body: '#7481b1',
 };
 
 const primary: Partial<ThemeColors['primary']> = {

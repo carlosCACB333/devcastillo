@@ -14,7 +14,7 @@ export const FloatingComponents = () => {
       <>
         <FaReact
           size={50}
-          className='absolute -top-[220px] -right-[40px] animate-[levitate_13s_ease_infinite_1s_reverse] text-cyan-400'
+          className='absolute -top-[220px] -right-10 animate-[levitate_13s_ease_infinite_1s_reverse] text-cyan-400'
         />
 
         <IconCard
@@ -35,32 +35,32 @@ export const FloatingComponents = () => {
         </Card>
 
         <IconCard
-          className='absolute -top-[160px] left-[170px] animate-[levitate_17s_ease_infinite_1s]'
+          className='absolute -top-40 left-[170px] animate-[levitate_17s_ease_infinite_1s]'
           color={colors.green[500]}
           aria-label='python'
         >
           <FaGithub size={30} />
         </IconCard>
 
-        <UserGitHubCard className='absolute -top-[50px] left-[80px] animate-[levitate_16s_ease_infinite] border-none' />
+        <UserGitHubCard className='absolute -top-[50px] left-20 animate-[levitate_16s_ease_infinite] border-none' />
 
         <div className='absolute -top-[60px] right-[110px] z-10 max-w-fit animate-[levitate_18s_ease_infinite] border-none'>
           <GopherIcon height={100} width={100} />
         </div>
 
-        <div className='absolute -top-[40px] -right-[230px] z-10 animate-[levitate_14s_ease_infinite_1s]'>
+        <div className='absolute -top-10 -right-[230px] z-10 animate-[levitate_14s_ease_infinite_1s]'>
           <FaDocker size={50} className='text-primary' />
         </div>
 
         <IconCard
-          className='absolute top-[160px] left-[200px] max-w-fit animate-[levitate_14s_ease_infinite_0.5s]'
+          className='absolute top-40 left-[200px] max-w-fit animate-[levitate_14s_ease_infinite_0.5s]'
           color={colors.yellow[500]}
           aria-label='k8s'
         >
           <BiLogoKubernetes size={50} />
         </IconCard>
 
-        <div className='absolute top-[30px] right-[10px] z-10 max-w-fit animate-[levitate_16s_ease_infinite] border-none'>
+        <div className='absolute top-[30px] right-2.5 z-10 max-w-fit animate-[levitate_16s_ease_infinite] border-none'>
           <Icon name='ia' height={50} width={50} className='' />
         </div>
 

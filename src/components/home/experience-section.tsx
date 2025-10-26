@@ -41,9 +41,11 @@ export const ExperienceSection = () => {
               &nbsp;en TypeSubs
             </h3>
 
-            <time className='mb-2 block text-base leading-none italic opacity-80'>Octubre 2024 - Actualidad</time>
+            <time className='text-foreground-500 mt-2 mb-8 block text-base leading-none italic'>
+              Octubre 2024 - Actualidad
+            </time>
 
-            <ul className='ms-4 list-outside list-disc marker:text-pink-500'>
+            <ul className='text-foreground-500 ms-4 flex list-outside list-disc flex-col gap-2 marker:text-pink-500'>
               <li>Desarrollé interfaces modernas, accesibles, intuitivas, escalables y mantenibles.</li>
               <li>Implementé pagos mediante Mercado Pago e integré sistemas de autenticación seguros con Auth0.</li>
               <li>
@@ -63,9 +65,11 @@ export const ExperienceSection = () => {
               &nbsp;en Netdreams
             </h3>
 
-            <time className='mb-2 block text-base leading-none italic opacity-80'>Enero 2021 - Diciembre 2024</time>
+            <time className='text-foreground-500 mt-2 mb-8 block text-base leading-none italic'>
+              Enero 2021 - Diciembre 2024
+            </time>
 
-            <ul className='ms-4 list-outside list-disc marker:text-pink-500'>
+            <ul className='text-foreground-500 ms-4 flex list-outside list-disc flex-col gap-2 marker:text-pink-500'>
               <li>
                 Desarrollé e implementé microservicios escalables para la billetera digital BIM, asegurando alta
                 disponibilidad y mantenibilidad.

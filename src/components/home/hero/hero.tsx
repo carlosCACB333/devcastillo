@@ -22,27 +22,18 @@ interface Props {
 export const Hero: FC<Props> = ({ features }) => {
   const { author } = useAuthor();
 
-  const [firstWord = '', secondWord = '', thirdWord = '', fourthWord = '', fifthWord = ''] =
-    author.profession!.split(' ');
+  // const [firstWord = '', secondWord = '', thirdWord = '', fourthWord = '', fifthWord = ''] =
+  //   author.profession!.split(' ');
   return (
     <>
       <section className='relative flex min-h-[calc(100vh-4rem)] w-full flex-col justify-evenly gap-4'>
         <div className='flex h-full w-full flex-nowrap items-center justify-between'>
           <div className='relative z-20 flex w-full flex-col gap-6 md:w-1/2 xl:mt-10'>
+            <div className={subtitle({ fullWidth: true })}>👋 ¡Hola! soy </div>
             <h1 className={title({ size: 'lg' })}>
-              {firstWord} {secondWord} &nbsp;
-              <span className={title({ color: 'blue', size: 'lg' })}>{thirdWord} &nbsp;</span>
-              {fourthWord} &nbsp;
-              <span className={title({ color: 'blue', size: 'lg' })}>{fifthWord}</span>
-              <span className='animate-heartbeat'>😎</span>
+              {author.firstName} {author.lastName.split(' ').at(0)}
             </h1>
-            <h2
-              className={subtitle({
-                fullWidth: true,
-              })}
-            >
-              {author.detail}
-            </h2>
+            <h2 className={subtitle({ fullWidth: true })}>{author.detail}</h2>
             <div className='flex flex-col items-center gap-4 md:flex-row'>
               <Button
                 as={NextLink}
