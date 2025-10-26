@@ -152,6 +152,7 @@ export const ContactSection = () => {
                   />
                   <Button
                     type='submit'
+                    variant='shadow'
                     className='w-full'
                     color='primary'
                     isDisabled={!isValid}

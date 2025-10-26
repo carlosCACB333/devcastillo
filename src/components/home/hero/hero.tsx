@@ -37,6 +37,7 @@ export const Hero: FC<Props> = ({ features }) => {
             <div className='flex flex-col items-center gap-4 md:flex-row'>
               <Button
                 as={NextLink}
+                variant='shadow'
                 className='w-full md:w-auto'
                 color='primary'
                 aria-label='boton sobre mí'

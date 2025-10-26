@@ -44,6 +44,7 @@ export const CertificateSection = ({ certifications }: Props) => {
           <div className='flex flex-row justify-start gap-3'>
             <Button
               as={NextLink}
+              variant='shadow'
               className='text-sm'
               color='secondary'
               endContent={

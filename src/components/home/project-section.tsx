@@ -54,6 +54,7 @@ export const ProjectSection: FC<Props> = ({ projects }) => {
       </div>
       <div>
         <Button
+          variant='shadow'
           color='warning'
           href='/project'
           size='lg'
