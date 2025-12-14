@@ -46,20 +46,20 @@ const HeroUIConfig: HeroUIPluginConfig = {
     light: {
       colors: {
         background: {
-          DEFAULT: '#eef6ff',
+          DEFAULT: '#f5faff',
         },
         foreground: {
           DEFAULT: '#000001',
           500: '#404152',
         },
         content1: {
-          DEFAULT: '#eaf5ff',
+          DEFAULT: '#f5faff',
         },
         content2: {
           DEFAULT: '#0f121a',
         },
         default: {
-          DEFAULT: '#eaf5ff',
+          DEFAULT: '#f5faff',
         },
         primary,
       },

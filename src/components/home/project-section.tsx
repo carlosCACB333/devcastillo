@@ -1,7 +1,6 @@
 'use client';
 import { Project } from '@/generated/graphql';
 import { Button } from '@heroui/button';
-import NextLink from 'next/link';
 import { FC } from 'react';
 import { FaProjectDiagram } from 'react-icons/fa';
 import { sectionWrapper, subtitle, title, titleWrapper } from '..';
@@ -60,7 +59,6 @@ export const ProjectSection: FC<Props> = ({ projects }) => {
           size='lg'
           endContent={<Icon name='right' />}
           aria-label='Ver más proyectos'
-          as={NextLink}
         >
           Ver más
         </Button>

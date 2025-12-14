@@ -3,7 +3,6 @@ import { sizes } from '@/assets';
 import { Certification } from '@/generated/graphql';
 import { Button } from '@heroui/button';
 import { ArrowRightIcon } from '@heroui/shared-icons';
-import NextLink from 'next/link';
 import { AiFillSafetyCertificate } from 'react-icons/ai';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -43,7 +42,6 @@ export const CertificateSection = ({ certifications }: Props) => {
           </p>
           <div className='flex flex-row justify-start gap-3'>
             <Button
-              as={NextLink}
               variant='shadow'
               className='text-sm'
               color='secondary'

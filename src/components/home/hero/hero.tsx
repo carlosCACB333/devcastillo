@@ -6,7 +6,6 @@ import { useAuthor } from '@/hooks';
 import { Button } from '@heroui/button';
 import { Link } from '@heroui/link';
 import dynamic from 'next/dynamic';
-import NextLink from 'next/link';
 import { FC } from 'react';
 import { AiOutlineHeart, AiOutlinePaperClip } from 'react-icons/ai';
 import { FloatingComponents } from './floating-components';
@@ -36,7 +35,6 @@ export const Hero: FC<Props> = ({ features }) => {
             <h2 className={subtitle({ fullWidth: true })}>{author.detail}</h2>
             <div className='flex flex-col items-center gap-4 md:flex-row'>
               <Button
-                as={NextLink}
                 variant='shadow'
                 className='w-full md:w-auto'
                 color='primary'

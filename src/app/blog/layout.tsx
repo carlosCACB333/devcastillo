@@ -7,7 +7,6 @@ import { formatDate } from '@/utils';
 import { GRAPH_SDK } from '@/utils/sdk';
 import { Link } from '@heroui/link';
 import { Metadata } from 'next';
-import NextLink from 'next/link';
 
 const Layout = async ({ children }: LayoutProps) => {
   const { firstPosts, categories, skills } = await GRAPH_SDK.blogsLayout({
@@ -46,14 +45,7 @@ const Layout = async ({ children }: LayoutProps) => {
               key={category.id}
               className="before:bg-primary relative ml-[0.4rem] ps-2 font-semibold before:absolute before:top-[.7rem] before:left-[-0.4rem] before:h-[0.4rem] before:w-[0.4rem] before:rounded-full before:content-['']"
             >
-              <Link
-                color='foreground'
-                size='sm'
-                href={createUrl(category.slug)}
-                as={NextLink}
-                aria-label={category.name}
-                scroll={false}
-              >
+              <Link color='foreground' size='sm' href={createUrl(category.slug)} aria-label={category.name}>
                 {category.name}
               </Link>
             </li>
@@ -68,7 +60,7 @@ const Layout = async ({ children }: LayoutProps) => {
               </div>
 
               <div className='ml-4 flex flex-1 flex-col'>
-                <Link href={`/blog/${post.slug}`} className='self-start' as={NextLink} aria-label={post.title}>
+                <Link href={`/blog/${post.slug}`} className='self-start' aria-label={post.title}>
                   {post.title}
                 </Link>
                 <p className='text-tiny'>{formatDate(post.updatedAt)}</p>
