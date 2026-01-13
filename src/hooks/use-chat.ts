@@ -1,6 +1,6 @@
-import { aboutme } from '@/assets/aboutme';
+
 import { useLlm } from '@/store/web-llm';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface Message {
   id: string;
@@ -13,7 +13,21 @@ export const useChat = () => {
   const isLoaded = useLlm((s) => s.isLoaded);
   const [messages, setMessages] = useState<Message[]>([]);
   const [isTyping, setIsTyping] = useState(false);
+  const [cv, setCv] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const retrieveCvContent = async () => {
+      try {
+        const res = await fetch('/cv.md');
+        const data = await res.text();
+        setCv(data);
+      } catch (error) {
+        console.error('Error fetching about me:', error);
+      }
+    };
+    retrieveCvContent();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
@@ -33,19 +47,38 @@ export const useChat = () => {
         messages: [
           {
             role: 'system',
-            content: `Eres el asistente virtual de Carlos. Usando la siguiente información, responde a las preguntas de los usuarios. 
-            --- CONTEXTO ---
-            ${aboutme}
-            --- FIN DEL CONTEXTO ---
-            Responde de forma concisa y clara. Si no sabes la respuesta, di que no lo sabes.
+            content: `Eres el asistente virtual de Carlos Castillo, un desarrollador de software profesional.
 
-            `,
+TU ROL:
+- Responder preguntas sobre la experiencia, habilidades y proyectos de Carlos
+- Ayudar a entender su perfil profesional
+- Conectar a usuarios interesados con Carlos
+
+CONTEXTO DEL CV:
+${cv}
+
+INSTRUCCIONES:
+1. Responde SOLO basándote en la información del CV proporcionado
+2. Si no encuentras la información en el CV, responde: "No tengo esa información específica en el CV, pero puedes contactar directamente a Carlos para más detalles"
+3. Mantén un tono profesional pero cercano
+4. Sé específico: menciona tecnologías, años de experiencia, nombres de proyectos cuando sea relevante
+5. Si preguntan sobre contacto, proporciona únicamente la información que esté en el CV
+6. Respuestas concisas: máximo 3-4 oraciones
+7. Si preguntan sobre habilidades específicas, menciona proyectos donde las aplicó
+
+EJEMPLOS DE BUENAS RESPUESTAS:
+- "Carlos tiene [X] años de experiencia con [tecnología], trabajando principalmente en [tipo de proyectos]"
+- "En su CV destaca el proyecto [nombre], donde utilizó [tecnologías] para [logro específico]"
+
+NO HAGAS:
+- Inventar información no presente en el CV
+- Responder preguntas no relacionadas con el perfil profesional de Carlos`,
           },
           ...user_msgs.slice(-8),
         ],
         stream: true,
-        temperature: 0.2,
-        max_tokens: 200,
+        temperature: 0.3,
+        max_tokens: 350,
       });
       let completion = '';
       for await (const chunk of chunks) {
@@ -64,7 +97,7 @@ export const useChat = () => {
 
   return {
     messages,
-    isLoaded,
+    isLoaded: isLoaded && engine && cv.length > 0,
     isTyping,
     handleSubmit,
     clearMessages,
