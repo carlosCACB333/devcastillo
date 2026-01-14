@@ -24,3 +24,12 @@ En la cual podrás encontrar información sobre mi, mis proyectos y mis redes so
 ## Ver el proyecto en vivo
 
 [https://devcastillo.com](https://devcastillo.com)
+
+
+## convertir cv.md a pdf
+
+```bash
+pandoc public/cv.md -o cv.html
+```
+
+ abrir en el navegador e imprimir como pdf
